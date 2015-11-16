@@ -1,6 +1,8 @@
 
 /* Automatically generated file */
 
+#include <sstream>
+
 #include "ProtocolNew.h"
 
 namespace dakara {
