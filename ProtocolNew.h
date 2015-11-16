@@ -4,6 +4,8 @@
 #include <stdint.h>
 #include <string>
 #include <vector>
+#include <stdexcept>
+
 #include "ByteQueue.h"
 
 namespace dakara {
@@ -22,6 +24,11 @@ namespace clientgm {
 namespace server {
     class ServerPacketHandler;
 }
+
+class PacketDecodingError : public std::runtime_error {
+public:
+    PacketDecodingError(const std::string& what) : std::runtime_error(what) {}
+};
 
 class PacketHandler {
 public:
@@ -186,6 +193,8 @@ public:
 };
 
 ClientPacket* ClientPacketFactory(clsByteQueue* buffer);
+
+void ClientPacketDecodeAndDispatch(clsByteQueue* buffer, PacketHandler* handler);
 
 
 class LoginExistingChar : public ClientPacket {
@@ -1959,6 +1968,8 @@ public:
 };
 
 ClientGMPacket* ClientGMPacketFactory(clsByteQueue* buffer);
+
+void ClientGMPacketDecodeAndDispatch(clsByteQueue* buffer, PacketHandler* handler);
 
 
 class GMMessage : public ClientGMPacket {
@@ -3901,6 +3912,8 @@ public:
 
 ServerPacket* ServerPacketFactory(clsByteQueue* buffer);
 
+void ServerPacketDecodeAndDispatch(clsByteQueue* buffer, PacketHandler* handler);
+
 
 class Logged : public ServerPacket {
 public:
@@ -5151,7 +5164,7 @@ public:
     virtual void dispatch(PacketHandler* d);
 
     struct Item {
-    std::int8_t Hola; 
+    std::string Usuario; 
     };
 
     std::vector<Item> Items;

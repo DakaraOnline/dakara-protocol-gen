@@ -39,6 +39,8 @@ public:
 
 {base_name}* {base_name}Factory(clsByteQueue* buffer);
 
+void {base_name}DecodeAndDispatch(clsByteQueue* buffer, PacketHandler* handler);
+
 """.format(base_name=base_name))
 
     # Factory
@@ -62,6 +64,38 @@ public:
     fc.write("""
     }}
     return p;
+}}
+""".format())
+
+    # Decode and Dispatch, keeping the Packet in the stack
+    # Suggested by hmk
+    fc.write("""
+void {base_name}DecodeAndDispatch(clsByteQueue* buffer, PacketHandler* handler) {{
+    if (buffer->length() < 1) return;
+    int PacketID = buffer->PeekByte();
+
+    switch (PacketID) {{
+""".format(base_name=base_name))
+
+    for i, x in enumerate(P):
+        if not x: continue
+        fc.write("""
+        case {i}:
+        {{
+            {name} p(buffer);
+            p.dispatch(handler);
+            break;
+        }}
+""".format(i=i, name=x.name))
+
+    fc.write("""
+        default:
+        {{
+            std::stringstream ss;
+            ss << "error decoding packet id: " << PacketID;
+            throw PacketDecodingError(ss.str());
+        }}
+    }}
 }}
 """.format())
 
@@ -138,7 +172,7 @@ public:
         if not x: continue
 
         fh.write("""    virtual void handle{name}({name}* p);\n""".format(name=x.name))
-        fc.write("""void {base_name}Handler::handle{name}({name}* p){{}}\n""".format(base_name=base_name, name=x.name))
+        fc.write("""void {base_name}Handler::handle{name}({name}* p){{ (void)p; }}\n""".format(base_name=base_name, name=x.name))
 
     fh.write("""
 };
@@ -154,8 +188,8 @@ public:
 """)
 
 def write_packets():
-    fh = open("Protocol.h", "w")
-    fc = open("Protocol.cpp", "w")
+    fh = open("ProtocolNew.h", "w")
+    fc = open("ProtocolNew.cpp", "w")
 
     fh.write("""
 /* Automatically generated file */
@@ -163,6 +197,8 @@ def write_packets():
 #include <stdint.h>
 #include <string>
 #include <vector>
+#include <stdexcept>
+
 #include "ByteQueue.h"
 
 namespace dakara {
@@ -181,6 +217,11 @@ namespace clientgm {
 namespace server {
     class ServerPacketHandler;
 }
+
+class PacketDecodingError : public std::runtime_error {
+public:
+    PacketDecodingError(const std::string& what) : std::runtime_error(what) {}
+};
 
 class PacketHandler {
 public:
@@ -209,7 +250,7 @@ protected:
     fc.write("""
 /* Automatically generated file */
 
-#include "Protocol.h"
+#include "ProtocolNew.h"
 
 namespace dakara {
 namespace protocol {
