@@ -207,9 +207,9 @@ public:
 
     std::string UserName; 
     std::string Password; 
-    std::int8_t VerA; 
-    std::int8_t VerB; 
-    std::int8_t VerC; 
+    std::uint8_t VerA; 
+    std::uint8_t VerB; 
+    std::uint8_t VerC; 
 };
 
 class ThrowDices : public ClientPacket {
@@ -233,15 +233,15 @@ public:
 
     std::string UserName; 
     std::string Password; 
-    std::int8_t VerA; 
-    std::int8_t VerB; 
-    std::int8_t VerC; 
-    std::int8_t Race; 
-    std::int8_t Gender; 
-    std::int8_t Class; 
+    std::uint8_t VerA; 
+    std::uint8_t VerB; 
+    std::uint8_t VerC; 
+    std::uint8_t Race; 
+    std::uint8_t Gender; 
+    std::uint8_t Class; 
     std::int16_t Head; 
     std::string Mail; 
-    std::int8_t Homeland; 
+    std::uint8_t Homeland; 
 };
 
 class Talk : public ClientPacket {
@@ -484,7 +484,7 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t Slot; 
+    std::uint8_t Slot; 
     std::int16_t Amount; 
 };
 
@@ -496,7 +496,7 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t Spell; 
+    std::uint8_t Spell; 
 };
 
 class LeftClick : public ClientPacket {
@@ -507,8 +507,8 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t X; 
-    std::int8_t Y; 
+    std::uint8_t X; 
+    std::uint8_t Y; 
 };
 
 class DoubleClick : public ClientPacket {
@@ -519,8 +519,8 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t X; 
-    std::int8_t Y; 
+    std::uint8_t X; 
+    std::uint8_t Y; 
 };
 
 class Work : public ClientPacket {
@@ -531,7 +531,7 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t Skill; 
+    std::uint8_t Skill; 
 };
 
 class UseSpellMacro : public ClientPacket {
@@ -553,7 +553,7 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t Slot; 
+    std::uint8_t Slot; 
 };
 
 class CraftBlacksmith : public ClientPacket {
@@ -586,9 +586,9 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t X; 
-    std::int8_t Y; 
-    std::int8_t Skill; 
+    std::uint8_t X; 
+    std::uint8_t Y; 
+    std::uint8_t Skill; 
 };
 
 class CreateNewGuild : public ClientPacket {
@@ -613,7 +613,7 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t Slot; 
+    std::uint8_t Slot; 
 };
 
 class EquipItem : public ClientPacket {
@@ -624,7 +624,7 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t Slot; 
+    std::uint8_t Slot; 
 };
 
 class ChangeHeading : public ClientPacket {
@@ -635,7 +635,7 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t Heading; 
+    std::uint8_t Heading; 
 };
 
 class ModifySkills : public ClientPacket {
@@ -646,7 +646,7 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t Skills[20]; 
+    std::uint8_t Skills[20]; 
 };
 
 class Train : public ClientPacket {
@@ -657,7 +657,7 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t PetIndex; 
+    std::uint8_t PetIndex; 
 };
 
 class CommerceBuy : public ClientPacket {
@@ -668,7 +668,7 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t Slot; 
+    std::uint8_t Slot; 
     std::int16_t Amount; 
 };
 
@@ -680,7 +680,7 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t Slot; 
+    std::uint8_t Slot; 
     std::int16_t Amount; 
 };
 
@@ -692,7 +692,7 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t Slot; 
+    std::uint8_t Slot; 
     std::int16_t Amount; 
 };
 
@@ -704,7 +704,7 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t Slot; 
+    std::uint8_t Slot; 
     std::int16_t Amount; 
 };
 
@@ -716,7 +716,7 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t MsgType; 
+    std::uint8_t MsgType; 
     std::string Title; 
     std::string Post; 
 };
@@ -730,7 +730,7 @@ public:
     virtual void dispatch(PacketHandler* d);
 
     bool Direction; 
-    std::int8_t Slot; 
+    std::uint8_t Slot; 
 };
 
 class MoveBank : public ClientPacket {
@@ -742,7 +742,7 @@ public:
     virtual void dispatch(PacketHandler* d);
 
     bool Direction; 
-    std::int8_t Slot; 
+    std::uint8_t Slot; 
 };
 
 class ClanCodexUpdate : public ClientPacket {
@@ -765,9 +765,9 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t Slot; 
+    std::uint8_t Slot; 
     std::int32_t Amount; 
-    std::int8_t OfferSlot; 
+    std::uint8_t OfferSlot; 
 };
 
 class GuildAcceptPeace : public ClientPacket {
@@ -1443,7 +1443,7 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t Opt; 
+    std::uint8_t Opt; 
 };
 
 class LeaveFaction : public ClientPacket {
@@ -1509,7 +1509,7 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t ClanType; 
+    std::uint8_t ClanType; 
 };
 
 class PartyKick : public ClientPacket {
@@ -1666,9 +1666,9 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t OldSlot; 
-    std::int8_t NewSlot; 
-    std::int8_t Unknown; 
+    std::uint8_t OldSlot; 
+    std::uint8_t NewSlot; 
+    std::uint8_t Unknown; 
 };
 
 class ClientPacketHandler {
@@ -2092,8 +2092,8 @@ public:
 
     std::string UserName; 
     std::int16_t Map; 
-    std::int8_t X; 
-    std::int8_t Y; 
+    std::uint8_t X; 
+    std::uint8_t Y; 
 };
 
 class Silence : public ClientGMPacket {
@@ -2205,7 +2205,7 @@ public:
 
     std::string UserName; 
     std::string Reason; 
-    std::int8_t JailTime; 
+    std::uint8_t JailTime; 
 };
 
 class KillNPC : public ClientGMPacket {
@@ -2240,7 +2240,7 @@ public:
     virtual void dispatch(PacketHandler* d);
 
     std::string UserName; 
-    std::int8_t Opcion; 
+    std::uint8_t Opcion; 
     std::string Arg1; 
     std::string Arg2; 
 };
@@ -2519,9 +2519,9 @@ public:
     virtual void dispatch(PacketHandler* d);
 
     std::int16_t Map; 
-    std::int8_t X; 
-    std::int8_t Y; 
-    std::int8_t Radio; 
+    std::uint8_t X; 
+    std::uint8_t Y; 
+    std::uint8_t Radio; 
 };
 
 class TeleportDestroy : public ClientGMPacket {
@@ -2577,10 +2577,10 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t Wave; 
+    std::uint8_t Wave; 
     std::int16_t Map; 
-    std::int8_t X; 
-    std::int8_t Y; 
+    std::uint8_t X; 
+    std::uint8_t Y; 
 };
 
 class RoyalArmyMessage : public ClientGMPacket {
@@ -2869,7 +2869,7 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t MidiID; 
+    std::uint8_t MidiID; 
 };
 
 class ForceWAVEAll : public ClientGMPacket {
@@ -2880,7 +2880,7 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t WaveID; 
+    std::uint8_t WaveID; 
 };
 
 class RemovePunishment : public ClientGMPacket {
@@ -2892,7 +2892,7 @@ public:
     virtual void dispatch(PacketHandler* d);
 
     std::string UserName; 
-    std::int8_t Punishment; 
+    std::uint8_t Punishment; 
     std::string NewText; 
 };
 
@@ -3003,7 +3003,7 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t Index; 
+    std::uint8_t Index; 
     std::int16_t ObjIndex; 
 };
 
@@ -3015,7 +3015,7 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t Index; 
+    std::uint8_t Index; 
     std::int16_t ObjIndex; 
 };
 
@@ -3426,9 +3426,9 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t R; 
-    std::int8_t G; 
-    std::int8_t B; 
+    std::uint8_t R; 
+    std::uint8_t G; 
+    std::uint8_t B; 
 };
 
 class Ignored : public ClientGMPacket {
@@ -3451,7 +3451,7 @@ public:
     virtual void dispatch(PacketHandler* d);
 
     std::string UserName; 
-    std::int8_t Slot; 
+    std::uint8_t Slot; 
 };
 
 class SetIniVar : public ClientGMPacket {
@@ -3476,8 +3476,8 @@ public:
     virtual void dispatch(PacketHandler* d);
 
     std::int16_t Map; 
-    std::int8_t X; 
-    std::int8_t Y; 
+    std::uint8_t X; 
+    std::uint8_t Y; 
 };
 
 class RemovePretorianClan : public ClientGMPacket {
@@ -3577,7 +3577,7 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t Index; 
+    std::uint8_t Index; 
 };
 
 class RecordAddObs : public ClientGMPacket {
@@ -3588,7 +3588,7 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t Index; 
+    std::uint8_t Index; 
     std::string Obs; 
 };
 
@@ -3611,7 +3611,7 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t Index; 
+    std::uint8_t Index; 
 };
 
 class AlterGuildName : public ClientGMPacket {
@@ -3923,7 +3923,7 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t Clase; 
+    std::uint8_t Clase; 
 };
 
 class RemoveDialogs : public ServerPacket {
@@ -4056,7 +4056,7 @@ public:
     virtual void dispatch(PacketHandler* d);
 
     std::string Chat; 
-    std::int8_t FontIndex; 
+    std::uint8_t FontIndex; 
 };
 
 class ShowBlacksmithForm : public ServerPacket {
@@ -4167,8 +4167,8 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t X; 
-    std::int8_t Y; 
+    std::uint8_t X; 
+    std::uint8_t Y; 
 };
 
 class ChatOverHead : public ServerPacket {
@@ -4181,9 +4181,9 @@ public:
 
     std::string Chat; 
     std::int16_t CharIndex; 
-    std::int8_t R; 
-    std::int8_t G; 
-    std::int8_t B; 
+    std::uint8_t R; 
+    std::uint8_t G; 
+    std::uint8_t B; 
 };
 
 class ConsoleMsg : public ServerPacket {
@@ -4253,17 +4253,17 @@ public:
     std::int16_t CharIndex; 
     std::int16_t Body; 
     std::int16_t Head; 
-    std::int8_t Heading; 
-    std::int8_t X; 
-    std::int8_t Y; 
+    std::uint8_t Heading; 
+    std::uint8_t X; 
+    std::uint8_t Y; 
     std::int16_t Weapon; 
     std::int16_t Shield; 
     std::int16_t Helmet; 
     std::int16_t FX; 
     std::int16_t FXLoops; 
     std::string Name; 
-    std::int8_t NickColor; 
-    std::int8_t Privileges; 
+    std::uint8_t NickColor; 
+    std::uint8_t Privileges; 
 };
 
 class CharacterRemove : public ServerPacket {
@@ -4298,8 +4298,8 @@ public:
     virtual void dispatch(PacketHandler* d);
 
     std::int16_t CharIndex; 
-    std::int8_t X; 
-    std::int8_t Y; 
+    std::uint8_t X; 
+    std::uint8_t Y; 
 };
 
 class ForceCharMove : public ServerPacket {
@@ -4310,7 +4310,7 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t Direction; 
+    std::uint8_t Direction; 
 };
 
 class CharacterChange : public ServerPacket {
@@ -4324,7 +4324,7 @@ public:
     std::int16_t CharIndex; 
     std::int16_t Body; 
     std::int16_t Head; 
-    std::int8_t Heading; 
+    std::uint8_t Heading; 
     std::int16_t Weapon; 
     std::int16_t Shield; 
     std::int16_t Helmet; 
@@ -4340,8 +4340,8 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t X; 
-    std::int8_t Y; 
+    std::uint8_t X; 
+    std::uint8_t Y; 
     std::int16_t GrhIndex; 
 };
 
@@ -4353,8 +4353,8 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t X; 
-    std::int8_t Y; 
+    std::uint8_t X; 
+    std::uint8_t Y; 
 };
 
 class BlockPosition : public ServerPacket {
@@ -4365,8 +4365,8 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t X; 
-    std::int8_t Y; 
+    std::uint8_t X; 
+    std::uint8_t Y; 
     bool Blocked; 
 };
 
@@ -4390,9 +4390,9 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t WaveID; 
-    std::int8_t X; 
-    std::int8_t Y; 
+    std::uint8_t WaveID; 
+    std::uint8_t X; 
+    std::uint8_t Y; 
 };
 
 class GuildList : public ServerPacket {
@@ -4414,8 +4414,8 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t X; 
-    std::int8_t Y; 
+    std::uint8_t X; 
+    std::uint8_t Y; 
 };
 
 class PauseToggle : public ServerPacket {
@@ -4468,7 +4468,7 @@ public:
     std::int16_t MaxSta; 
     std::int16_t MinSta; 
     std::int32_t Gld; 
-    std::int8_t Elv; 
+    std::uint8_t Elv; 
     std::int32_t Elu; 
     std::int32_t Exp; 
 };
@@ -4481,7 +4481,7 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t Skill; 
+    std::uint8_t Skill; 
 };
 
 class ChangeInventorySlot : public ServerPacket {
@@ -4492,13 +4492,13 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t Slot; 
+    std::uint8_t Slot; 
     std::int16_t ObjIndex; 
     std::string ObjName; 
     std::int16_t Amount; 
     bool Equiped; 
     std::int16_t GrhIndex; 
-    std::int8_t ObjType; 
+    std::uint8_t ObjType; 
     std::int16_t MaxHit; 
     std::int16_t MinHit; 
     std::int16_t MaxDef; 
@@ -4514,11 +4514,11 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t Slot; 
+    std::uint8_t Slot; 
     std::int16_t ObjIndex; 
     std::string ObjName; 
     std::int16_t GrhIndex; 
-    std::int8_t ObjType; 
+    std::uint8_t ObjType; 
     std::int16_t MaxHit; 
     std::int16_t MinHit; 
     std::int16_t MaxDef; 
@@ -4534,7 +4534,7 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t Slot; 
+    std::uint8_t Slot; 
     std::int16_t SpellID; 
     std::string Name; 
 };
@@ -4547,11 +4547,11 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t Fuerza; 
-    std::int8_t Agilidad; 
-    std::int8_t Inteligencia; 
-    std::int8_t Carisma; 
-    std::int8_t Constitucion; 
+    std::uint8_t Fuerza; 
+    std::uint8_t Agilidad; 
+    std::uint8_t Inteligencia; 
+    std::uint8_t Carisma; 
+    std::uint8_t Constitucion; 
 };
 
 class BlacksmithWeapons : public ServerPacket {
@@ -4680,13 +4680,13 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t Slot; 
+    std::uint8_t Slot; 
     std::string ObjName; 
     std::int16_t Amount; 
     float Price; 
     std::int16_t GrhIndex; 
     std::int16_t ObjIndex; 
-    std::int8_t ObjType; 
+    std::uint8_t ObjType; 
     std::int16_t MaxHit; 
     std::int16_t MinHit; 
     std::int16_t MaxDef; 
@@ -4701,10 +4701,10 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t MaxAgu; 
-    std::int8_t MinAgu; 
-    std::int8_t MaxHam; 
-    std::int8_t MinHam; 
+    std::uint8_t MaxAgu; 
+    std::uint8_t MinAgu; 
+    std::uint8_t MaxHam; 
+    std::uint8_t MinHam; 
 };
 
 class Fame : public ServerPacket {
@@ -4736,7 +4736,7 @@ public:
     std::int32_t CriminalesMatados; 
     std::int32_t UsuariosMatados; 
     std::int16_t NpcsMuertos; 
-    std::int8_t Clase; 
+    std::uint8_t Clase; 
     std::int32_t Pena; 
 };
 
@@ -4773,8 +4773,8 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t Visibilidad; 
-    std::int8_t CanMakeSticky; 
+    std::uint8_t Visibilidad; 
+    std::uint8_t CanMakeSticky; 
 };
 
 class SetInvisible : public ServerPacket {
@@ -4796,11 +4796,11 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t Fuerza; 
-    std::int8_t Agilidad; 
-    std::int8_t Inteligencia; 
-    std::int8_t Carisma; 
-    std::int8_t Constitucion; 
+    std::uint8_t Fuerza; 
+    std::uint8_t Agilidad; 
+    std::uint8_t Inteligencia; 
+    std::uint8_t Carisma; 
+    std::uint8_t Constitucion; 
 };
 
 class MeditateToggle : public ServerPacket {
@@ -4844,7 +4844,7 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t Skills[40]; 
+    std::uint8_t Skills[40]; 
 };
 
 class TrainerCreatureList : public ServerPacket {
@@ -4913,10 +4913,10 @@ public:
     virtual void dispatch(PacketHandler* d);
 
     std::string CharName; 
-    std::int8_t Race; 
-    std::int8_t Class; 
-    std::int8_t Gender; 
-    std::int8_t Level; 
+    std::uint8_t Race; 
+    std::uint8_t Class; 
+    std::uint8_t Gender; 
+    std::uint8_t Level; 
     std::int32_t Gold; 
     std::int32_t Bank; 
     std::int32_t Reputation; 
@@ -5041,11 +5041,11 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t OfferSlot; 
+    std::uint8_t OfferSlot; 
     std::int16_t ObjIndex; 
     std::int32_t Amount; 
     std::int16_t GrhIndex; 
-    std::int8_t ObjType; 
+    std::uint8_t ObjType; 
     std::int16_t MaxHit; 
     std::int16_t MinHit; 
     std::int16_t MaxDef; 
@@ -5085,7 +5085,7 @@ public:
     virtual void dispatch(PacketHandler* d);
 
     std::int16_t CharIndex; 
-    std::int8_t NickColor; 
+    std::uint8_t NickColor; 
     std::string Tag; 
 };
 
@@ -5205,7 +5205,7 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t EsLider; 
+    std::uint8_t EsLider; 
     std::string Data; 
     std::int32_t Exp; 
 };
@@ -5218,8 +5218,8 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t Fuerza; 
-    std::int8_t Agilidad; 
+    std::uint8_t Fuerza; 
+    std::uint8_t Agilidad; 
 };
 
 class UpdateStrenght : public ServerPacket {
@@ -5230,7 +5230,7 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t Fuerza; 
+    std::uint8_t Fuerza; 
 };
 
 class UpdateDexterity : public ServerPacket {
@@ -5241,7 +5241,7 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t Agilidad; 
+    std::uint8_t Agilidad; 
 };
 
 class AddSlots : public ServerPacket {
@@ -5252,7 +5252,7 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t Mochila; 
+    std::uint8_t Mochila; 
 };
 
 class MultiMessage : public ServerPacket {
@@ -5285,7 +5285,7 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    std::int8_t Slot; 
+    std::uint8_t Slot; 
 };
 
 class ServerPacketHandler {

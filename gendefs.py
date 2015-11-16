@@ -209,7 +209,7 @@ TYPE_TO_STR = {
     TYPE_UNICODE_STRING_FIXED: 'std::string',
     TYPE_BINARY_STRING: 'std::string',
     TYPE_BINARY_STRING_FIXED: 'std::string',
-    TYPE_I8: 'std::int8_t',
+    TYPE_I8: 'std::uint8_t',
     TYPE_I16: 'std::int16_t',
     TYPE_I32: 'std::int32_t',
     TYPE_SINGLE: 'float',
