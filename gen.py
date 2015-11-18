@@ -198,6 +198,7 @@ def write_packets():
 #include <string>
 #include <vector>
 #include <stdexcept>
+#include <memory>
 
 #include "ByteQueue.h"
 

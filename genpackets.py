@@ -709,7 +709,9 @@ SERVER_PACKETS.append(Packet('Logged', [
     ('Clase', TYPE_I8),
     ]))
 SERVER_PACKETS.append(Packet('RemoveDialogs', []))
-SERVER_PACKETS.append(Packet('RemoveCharDialog', []))
+SERVER_PACKETS.append(Packet('RemoveCharDialog', [
+    ('CharIndex', TYPE_I16),
+    ]))
 SERVER_PACKETS.append(Packet('NavigateToggle', []))
 SERVER_PACKETS.append(Packet('Disconnect', []))
 SERVER_PACKETS.append(Packet('CommerceEnd', []))

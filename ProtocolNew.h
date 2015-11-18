@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include <stdexcept>
+#include <memory>
 
 #include "ByteQueue.h"
 
@@ -1587,7 +1588,7 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    dakara::protocol::clientgm::ClientGMPacket* composite;
+    std::unique_ptr<dakara::protocol::clientgm::ClientGMPacket> composite;
 
 };
 
@@ -3945,7 +3946,7 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-
+    std::int16_t CharIndex; 
 };
 
 class NavigateToggle : public ServerPacket {

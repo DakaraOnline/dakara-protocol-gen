@@ -21,7 +21,7 @@ public:
 
     def get_ctor1_fmt(self):
         return """
-{name}::{name}() : {base_name}({base_name}ID_{name} /* {packet_id} */){ctor_fields} {{
+{name}::{name}() : {base_name}({base_name}ID_{name} /* {packet_id} */) {{
 }}
 """
 
@@ -75,14 +75,14 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-    dakara::protocol::clientgm::ClientGMPacket* composite;
+    std::unique_ptr<dakara::protocol::clientgm::ClientGMPacket> composite;
 {header_fields}
 }};
 """
 
     def get_ctor1_fmt(self):
         return """
-{name}::{name}() : {base_name}({base_name}ID_{name} /* {packet_id} */), composite(0){ctor_fields} {{
+{name}::{name}() : {base_name}({base_name}ID_{name} /* {packet_id} */) {{
 }}
 """
 
@@ -90,13 +90,11 @@ public:
         return """
 {name}::{name}(clsByteQueue* buffer) : {base_name}({base_name}ID_{name} /* {packet_id} */) {{
     buffer->ReadByte(); /* PacketID */
-    composite = dakara::protocol::clientgm::ClientGMPacketFactory(buffer);
+    composite.reset(dakara::protocol::clientgm::ClientGMPacketFactory(buffer));
 /* {ctor_fields_bytequeue} */
 }}
 
-{name}::~{name}() {{
-    if (composite) delete composite;
-}}
+{name}::~{name}() {{}}
 """
 
     def get_serialize_fmt(self):

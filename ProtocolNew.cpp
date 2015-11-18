@@ -1467,7 +1467,7 @@ void ClientPacketDecodeAndDispatch(clsByteQueue* buffer, PacketHandler* handler)
     }
 }
 
-LoginExistingChar::LoginExistingChar() : ClientPacket(ClientPacketID_LoginExistingChar /* 0 */), UserName(), Password(), VerA(), VerB(), VerC() {
+LoginExistingChar::LoginExistingChar() : ClientPacket(ClientPacketID_LoginExistingChar /* 0 */) {
 }
 
 LoginExistingChar::LoginExistingChar(clsByteQueue* buffer) : ClientPacket(ClientPacketID_LoginExistingChar /* 0 */) {
@@ -1511,7 +1511,7 @@ void ThrowDices::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleThrowDices(this);
 }
 
-LoginNewChar::LoginNewChar() : ClientPacket(ClientPacketID_LoginNewChar /* 2 */), UserName(), Password(), VerA(), VerB(), VerC(), Race(), Gender(), Class(), Head(), Mail(), Homeland() {
+LoginNewChar::LoginNewChar() : ClientPacket(ClientPacketID_LoginNewChar /* 2 */) {
 }
 
 LoginNewChar::LoginNewChar(clsByteQueue* buffer) : ClientPacket(ClientPacketID_LoginNewChar /* 2 */) {
@@ -1550,7 +1550,7 @@ void LoginNewChar::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleLoginNewChar(this);
 }
 
-Talk::Talk() : ClientPacket(ClientPacketID_Talk /* 3 */), Chat() {
+Talk::Talk() : ClientPacket(ClientPacketID_Talk /* 3 */) {
 }
 
 Talk::Talk(clsByteQueue* buffer) : ClientPacket(ClientPacketID_Talk /* 3 */) {
@@ -1569,7 +1569,7 @@ void Talk::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleTalk(this);
 }
 
-Yell::Yell() : ClientPacket(ClientPacketID_Yell /* 4 */), Chat() {
+Yell::Yell() : ClientPacket(ClientPacketID_Yell /* 4 */) {
 }
 
 Yell::Yell(clsByteQueue* buffer) : ClientPacket(ClientPacketID_Yell /* 4 */) {
@@ -1588,7 +1588,7 @@ void Yell::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleYell(this);
 }
 
-Whisper::Whisper() : ClientPacket(ClientPacketID_Whisper /* 5 */), TargetName(), Chat() {
+Whisper::Whisper() : ClientPacket(ClientPacketID_Whisper /* 5 */) {
 }
 
 Whisper::Whisper(clsByteQueue* buffer) : ClientPacket(ClientPacketID_Whisper /* 5 */) {
@@ -1847,7 +1847,7 @@ void UserCommerceConfirm::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleUserCommerceConfirm(this);
 }
 
-CommerceChat::CommerceChat() : ClientPacket(ClientPacketID_CommerceChat /* 20 */), Chat() {
+CommerceChat::CommerceChat() : ClientPacket(ClientPacketID_CommerceChat /* 20 */) {
 }
 
 CommerceChat::CommerceChat(clsByteQueue* buffer) : ClientPacket(ClientPacketID_CommerceChat /* 20 */) {
@@ -1917,7 +1917,7 @@ void UserCommerceReject::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleUserCommerceReject(this);
 }
 
-Drop::Drop() : ClientPacket(ClientPacketID_Drop /* 24 */), Slot(), Amount() {
+Drop::Drop() : ClientPacket(ClientPacketID_Drop /* 24 */) {
 }
 
 Drop::Drop(clsByteQueue* buffer) : ClientPacket(ClientPacketID_Drop /* 24 */) {
@@ -1938,7 +1938,7 @@ void Drop::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleDrop(this);
 }
 
-CastSpell::CastSpell() : ClientPacket(ClientPacketID_CastSpell /* 25 */), Spell() {
+CastSpell::CastSpell() : ClientPacket(ClientPacketID_CastSpell /* 25 */) {
 }
 
 CastSpell::CastSpell(clsByteQueue* buffer) : ClientPacket(ClientPacketID_CastSpell /* 25 */) {
@@ -1957,7 +1957,7 @@ void CastSpell::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleCastSpell(this);
 }
 
-LeftClick::LeftClick() : ClientPacket(ClientPacketID_LeftClick /* 26 */), X(), Y() {
+LeftClick::LeftClick() : ClientPacket(ClientPacketID_LeftClick /* 26 */) {
 }
 
 LeftClick::LeftClick(clsByteQueue* buffer) : ClientPacket(ClientPacketID_LeftClick /* 26 */) {
@@ -1978,7 +1978,7 @@ void LeftClick::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleLeftClick(this);
 }
 
-DoubleClick::DoubleClick() : ClientPacket(ClientPacketID_DoubleClick /* 27 */), X(), Y() {
+DoubleClick::DoubleClick() : ClientPacket(ClientPacketID_DoubleClick /* 27 */) {
 }
 
 DoubleClick::DoubleClick(clsByteQueue* buffer) : ClientPacket(ClientPacketID_DoubleClick /* 27 */) {
@@ -1999,7 +1999,7 @@ void DoubleClick::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleDoubleClick(this);
 }
 
-Work::Work() : ClientPacket(ClientPacketID_Work /* 28 */), Skill() {
+Work::Work() : ClientPacket(ClientPacketID_Work /* 28 */) {
 }
 
 Work::Work(clsByteQueue* buffer) : ClientPacket(ClientPacketID_Work /* 28 */) {
@@ -2035,7 +2035,7 @@ void UseSpellMacro::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleUseSpellMacro(this);
 }
 
-UseItem::UseItem() : ClientPacket(ClientPacketID_UseItem /* 30 */), Slot() {
+UseItem::UseItem() : ClientPacket(ClientPacketID_UseItem /* 30 */) {
 }
 
 UseItem::UseItem(clsByteQueue* buffer) : ClientPacket(ClientPacketID_UseItem /* 30 */) {
@@ -2054,7 +2054,7 @@ void UseItem::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleUseItem(this);
 }
 
-CraftBlacksmith::CraftBlacksmith() : ClientPacket(ClientPacketID_CraftBlacksmith /* 31 */), Item() {
+CraftBlacksmith::CraftBlacksmith() : ClientPacket(ClientPacketID_CraftBlacksmith /* 31 */) {
 }
 
 CraftBlacksmith::CraftBlacksmith(clsByteQueue* buffer) : ClientPacket(ClientPacketID_CraftBlacksmith /* 31 */) {
@@ -2073,7 +2073,7 @@ void CraftBlacksmith::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleCraftBlacksmith(this);
 }
 
-CraftCarpenter::CraftCarpenter() : ClientPacket(ClientPacketID_CraftCarpenter /* 32 */), Item() {
+CraftCarpenter::CraftCarpenter() : ClientPacket(ClientPacketID_CraftCarpenter /* 32 */) {
 }
 
 CraftCarpenter::CraftCarpenter(clsByteQueue* buffer) : ClientPacket(ClientPacketID_CraftCarpenter /* 32 */) {
@@ -2092,7 +2092,7 @@ void CraftCarpenter::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleCraftCarpenter(this);
 }
 
-WorkLeftClick::WorkLeftClick() : ClientPacket(ClientPacketID_WorkLeftClick /* 33 */), X(), Y(), Skill() {
+WorkLeftClick::WorkLeftClick() : ClientPacket(ClientPacketID_WorkLeftClick /* 33 */) {
 }
 
 WorkLeftClick::WorkLeftClick(clsByteQueue* buffer) : ClientPacket(ClientPacketID_WorkLeftClick /* 33 */) {
@@ -2115,7 +2115,7 @@ void WorkLeftClick::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleWorkLeftClick(this);
 }
 
-CreateNewGuild::CreateNewGuild() : ClientPacket(ClientPacketID_CreateNewGuild /* 34 */), Desc(), GuildName(), Site(), Codex() {
+CreateNewGuild::CreateNewGuild() : ClientPacket(ClientPacketID_CreateNewGuild /* 34 */) {
 }
 
 CreateNewGuild::CreateNewGuild(clsByteQueue* buffer) : ClientPacket(ClientPacketID_CreateNewGuild /* 34 */) {
@@ -2140,7 +2140,7 @@ void CreateNewGuild::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleCreateNewGuild(this);
 }
 
-SpellInfo::SpellInfo() : ClientPacket(ClientPacketID_SpellInfo /* 35 */), Slot() {
+SpellInfo::SpellInfo() : ClientPacket(ClientPacketID_SpellInfo /* 35 */) {
 }
 
 SpellInfo::SpellInfo(clsByteQueue* buffer) : ClientPacket(ClientPacketID_SpellInfo /* 35 */) {
@@ -2159,7 +2159,7 @@ void SpellInfo::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleSpellInfo(this);
 }
 
-EquipItem::EquipItem() : ClientPacket(ClientPacketID_EquipItem /* 36 */), Slot() {
+EquipItem::EquipItem() : ClientPacket(ClientPacketID_EquipItem /* 36 */) {
 }
 
 EquipItem::EquipItem(clsByteQueue* buffer) : ClientPacket(ClientPacketID_EquipItem /* 36 */) {
@@ -2178,7 +2178,7 @@ void EquipItem::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleEquipItem(this);
 }
 
-ChangeHeading::ChangeHeading() : ClientPacket(ClientPacketID_ChangeHeading /* 37 */), Heading() {
+ChangeHeading::ChangeHeading() : ClientPacket(ClientPacketID_ChangeHeading /* 37 */) {
 }
 
 ChangeHeading::ChangeHeading(clsByteQueue* buffer) : ClientPacket(ClientPacketID_ChangeHeading /* 37 */) {
@@ -2197,7 +2197,7 @@ void ChangeHeading::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleChangeHeading(this);
 }
 
-ModifySkills::ModifySkills() : ClientPacket(ClientPacketID_ModifySkills /* 38 */), Skills() {
+ModifySkills::ModifySkills() : ClientPacket(ClientPacketID_ModifySkills /* 38 */) {
 }
 
 ModifySkills::ModifySkills(clsByteQueue* buffer) : ClientPacket(ClientPacketID_ModifySkills /* 38 */) {
@@ -2216,7 +2216,7 @@ void ModifySkills::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleModifySkills(this);
 }
 
-Train::Train() : ClientPacket(ClientPacketID_Train /* 39 */), PetIndex() {
+Train::Train() : ClientPacket(ClientPacketID_Train /* 39 */) {
 }
 
 Train::Train(clsByteQueue* buffer) : ClientPacket(ClientPacketID_Train /* 39 */) {
@@ -2235,7 +2235,7 @@ void Train::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleTrain(this);
 }
 
-CommerceBuy::CommerceBuy() : ClientPacket(ClientPacketID_CommerceBuy /* 40 */), Slot(), Amount() {
+CommerceBuy::CommerceBuy() : ClientPacket(ClientPacketID_CommerceBuy /* 40 */) {
 }
 
 CommerceBuy::CommerceBuy(clsByteQueue* buffer) : ClientPacket(ClientPacketID_CommerceBuy /* 40 */) {
@@ -2256,7 +2256,7 @@ void CommerceBuy::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleCommerceBuy(this);
 }
 
-BankExtractItem::BankExtractItem() : ClientPacket(ClientPacketID_BankExtractItem /* 41 */), Slot(), Amount() {
+BankExtractItem::BankExtractItem() : ClientPacket(ClientPacketID_BankExtractItem /* 41 */) {
 }
 
 BankExtractItem::BankExtractItem(clsByteQueue* buffer) : ClientPacket(ClientPacketID_BankExtractItem /* 41 */) {
@@ -2277,7 +2277,7 @@ void BankExtractItem::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleBankExtractItem(this);
 }
 
-CommerceSell::CommerceSell() : ClientPacket(ClientPacketID_CommerceSell /* 42 */), Slot(), Amount() {
+CommerceSell::CommerceSell() : ClientPacket(ClientPacketID_CommerceSell /* 42 */) {
 }
 
 CommerceSell::CommerceSell(clsByteQueue* buffer) : ClientPacket(ClientPacketID_CommerceSell /* 42 */) {
@@ -2298,7 +2298,7 @@ void CommerceSell::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleCommerceSell(this);
 }
 
-BankDeposit::BankDeposit() : ClientPacket(ClientPacketID_BankDeposit /* 43 */), Slot(), Amount() {
+BankDeposit::BankDeposit() : ClientPacket(ClientPacketID_BankDeposit /* 43 */) {
 }
 
 BankDeposit::BankDeposit(clsByteQueue* buffer) : ClientPacket(ClientPacketID_BankDeposit /* 43 */) {
@@ -2319,7 +2319,7 @@ void BankDeposit::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleBankDeposit(this);
 }
 
-ForumPost::ForumPost() : ClientPacket(ClientPacketID_ForumPost /* 44 */), MsgType(), Title(), Post() {
+ForumPost::ForumPost() : ClientPacket(ClientPacketID_ForumPost /* 44 */) {
 }
 
 ForumPost::ForumPost(clsByteQueue* buffer) : ClientPacket(ClientPacketID_ForumPost /* 44 */) {
@@ -2342,7 +2342,7 @@ void ForumPost::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleForumPost(this);
 }
 
-MoveSpell::MoveSpell() : ClientPacket(ClientPacketID_MoveSpell /* 45 */), Direction(), Slot() {
+MoveSpell::MoveSpell() : ClientPacket(ClientPacketID_MoveSpell /* 45 */) {
 }
 
 MoveSpell::MoveSpell(clsByteQueue* buffer) : ClientPacket(ClientPacketID_MoveSpell /* 45 */) {
@@ -2363,7 +2363,7 @@ void MoveSpell::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleMoveSpell(this);
 }
 
-MoveBank::MoveBank() : ClientPacket(ClientPacketID_MoveBank /* 46 */), Direction(), Slot() {
+MoveBank::MoveBank() : ClientPacket(ClientPacketID_MoveBank /* 46 */) {
 }
 
 MoveBank::MoveBank(clsByteQueue* buffer) : ClientPacket(ClientPacketID_MoveBank /* 46 */) {
@@ -2384,7 +2384,7 @@ void MoveBank::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleMoveBank(this);
 }
 
-ClanCodexUpdate::ClanCodexUpdate() : ClientPacket(ClientPacketID_ClanCodexUpdate /* 47 */), Desc(), Codex() {
+ClanCodexUpdate::ClanCodexUpdate() : ClientPacket(ClientPacketID_ClanCodexUpdate /* 47 */) {
 }
 
 ClanCodexUpdate::ClanCodexUpdate(clsByteQueue* buffer) : ClientPacket(ClientPacketID_ClanCodexUpdate /* 47 */) {
@@ -2405,7 +2405,7 @@ void ClanCodexUpdate::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleClanCodexUpdate(this);
 }
 
-UserCommerceOffer::UserCommerceOffer() : ClientPacket(ClientPacketID_UserCommerceOffer /* 48 */), Slot(), Amount(), OfferSlot() {
+UserCommerceOffer::UserCommerceOffer() : ClientPacket(ClientPacketID_UserCommerceOffer /* 48 */) {
 }
 
 UserCommerceOffer::UserCommerceOffer(clsByteQueue* buffer) : ClientPacket(ClientPacketID_UserCommerceOffer /* 48 */) {
@@ -2428,7 +2428,7 @@ void UserCommerceOffer::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleUserCommerceOffer(this);
 }
 
-GuildAcceptPeace::GuildAcceptPeace() : ClientPacket(ClientPacketID_GuildAcceptPeace /* 49 */), Guild() {
+GuildAcceptPeace::GuildAcceptPeace() : ClientPacket(ClientPacketID_GuildAcceptPeace /* 49 */) {
 }
 
 GuildAcceptPeace::GuildAcceptPeace(clsByteQueue* buffer) : ClientPacket(ClientPacketID_GuildAcceptPeace /* 49 */) {
@@ -2447,7 +2447,7 @@ void GuildAcceptPeace::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleGuildAcceptPeace(this);
 }
 
-GuildRejectAlliance::GuildRejectAlliance() : ClientPacket(ClientPacketID_GuildRejectAlliance /* 50 */), Guild() {
+GuildRejectAlliance::GuildRejectAlliance() : ClientPacket(ClientPacketID_GuildRejectAlliance /* 50 */) {
 }
 
 GuildRejectAlliance::GuildRejectAlliance(clsByteQueue* buffer) : ClientPacket(ClientPacketID_GuildRejectAlliance /* 50 */) {
@@ -2466,7 +2466,7 @@ void GuildRejectAlliance::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleGuildRejectAlliance(this);
 }
 
-GuildRejectPeace::GuildRejectPeace() : ClientPacket(ClientPacketID_GuildRejectPeace /* 51 */), Guild() {
+GuildRejectPeace::GuildRejectPeace() : ClientPacket(ClientPacketID_GuildRejectPeace /* 51 */) {
 }
 
 GuildRejectPeace::GuildRejectPeace(clsByteQueue* buffer) : ClientPacket(ClientPacketID_GuildRejectPeace /* 51 */) {
@@ -2485,7 +2485,7 @@ void GuildRejectPeace::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleGuildRejectPeace(this);
 }
 
-GuildAcceptAlliance::GuildAcceptAlliance() : ClientPacket(ClientPacketID_GuildAcceptAlliance /* 52 */), Guild() {
+GuildAcceptAlliance::GuildAcceptAlliance() : ClientPacket(ClientPacketID_GuildAcceptAlliance /* 52 */) {
 }
 
 GuildAcceptAlliance::GuildAcceptAlliance(clsByteQueue* buffer) : ClientPacket(ClientPacketID_GuildAcceptAlliance /* 52 */) {
@@ -2504,7 +2504,7 @@ void GuildAcceptAlliance::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleGuildAcceptAlliance(this);
 }
 
-GuildOfferPeace::GuildOfferPeace() : ClientPacket(ClientPacketID_GuildOfferPeace /* 53 */), Guild(), Proposal() {
+GuildOfferPeace::GuildOfferPeace() : ClientPacket(ClientPacketID_GuildOfferPeace /* 53 */) {
 }
 
 GuildOfferPeace::GuildOfferPeace(clsByteQueue* buffer) : ClientPacket(ClientPacketID_GuildOfferPeace /* 53 */) {
@@ -2525,7 +2525,7 @@ void GuildOfferPeace::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleGuildOfferPeace(this);
 }
 
-GuildOfferAlliance::GuildOfferAlliance() : ClientPacket(ClientPacketID_GuildOfferAlliance /* 54 */), Guild(), Proposal() {
+GuildOfferAlliance::GuildOfferAlliance() : ClientPacket(ClientPacketID_GuildOfferAlliance /* 54 */) {
 }
 
 GuildOfferAlliance::GuildOfferAlliance(clsByteQueue* buffer) : ClientPacket(ClientPacketID_GuildOfferAlliance /* 54 */) {
@@ -2546,7 +2546,7 @@ void GuildOfferAlliance::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleGuildOfferAlliance(this);
 }
 
-GuildAllianceDetails::GuildAllianceDetails() : ClientPacket(ClientPacketID_GuildAllianceDetails /* 55 */), Guild() {
+GuildAllianceDetails::GuildAllianceDetails() : ClientPacket(ClientPacketID_GuildAllianceDetails /* 55 */) {
 }
 
 GuildAllianceDetails::GuildAllianceDetails(clsByteQueue* buffer) : ClientPacket(ClientPacketID_GuildAllianceDetails /* 55 */) {
@@ -2565,7 +2565,7 @@ void GuildAllianceDetails::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleGuildAllianceDetails(this);
 }
 
-GuildPeaceDetails::GuildPeaceDetails() : ClientPacket(ClientPacketID_GuildPeaceDetails /* 56 */), Guild() {
+GuildPeaceDetails::GuildPeaceDetails() : ClientPacket(ClientPacketID_GuildPeaceDetails /* 56 */) {
 }
 
 GuildPeaceDetails::GuildPeaceDetails(clsByteQueue* buffer) : ClientPacket(ClientPacketID_GuildPeaceDetails /* 56 */) {
@@ -2584,7 +2584,7 @@ void GuildPeaceDetails::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleGuildPeaceDetails(this);
 }
 
-GuildRequestJoinerInfo::GuildRequestJoinerInfo() : ClientPacket(ClientPacketID_GuildRequestJoinerInfo /* 57 */), User() {
+GuildRequestJoinerInfo::GuildRequestJoinerInfo() : ClientPacket(ClientPacketID_GuildRequestJoinerInfo /* 57 */) {
 }
 
 GuildRequestJoinerInfo::GuildRequestJoinerInfo(clsByteQueue* buffer) : ClientPacket(ClientPacketID_GuildRequestJoinerInfo /* 57 */) {
@@ -2637,7 +2637,7 @@ void GuildPeacePropList::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleGuildPeacePropList(this);
 }
 
-GuildDeclareWar::GuildDeclareWar() : ClientPacket(ClientPacketID_GuildDeclareWar /* 60 */), Guild() {
+GuildDeclareWar::GuildDeclareWar() : ClientPacket(ClientPacketID_GuildDeclareWar /* 60 */) {
 }
 
 GuildDeclareWar::GuildDeclareWar(clsByteQueue* buffer) : ClientPacket(ClientPacketID_GuildDeclareWar /* 60 */) {
@@ -2656,7 +2656,7 @@ void GuildDeclareWar::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleGuildDeclareWar(this);
 }
 
-GuildNewWebsite::GuildNewWebsite() : ClientPacket(ClientPacketID_GuildNewWebsite /* 61 */), Website() {
+GuildNewWebsite::GuildNewWebsite() : ClientPacket(ClientPacketID_GuildNewWebsite /* 61 */) {
 }
 
 GuildNewWebsite::GuildNewWebsite(clsByteQueue* buffer) : ClientPacket(ClientPacketID_GuildNewWebsite /* 61 */) {
@@ -2675,7 +2675,7 @@ void GuildNewWebsite::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleGuildNewWebsite(this);
 }
 
-GuildAcceptNewMember::GuildAcceptNewMember() : ClientPacket(ClientPacketID_GuildAcceptNewMember /* 62 */), UserName() {
+GuildAcceptNewMember::GuildAcceptNewMember() : ClientPacket(ClientPacketID_GuildAcceptNewMember /* 62 */) {
 }
 
 GuildAcceptNewMember::GuildAcceptNewMember(clsByteQueue* buffer) : ClientPacket(ClientPacketID_GuildAcceptNewMember /* 62 */) {
@@ -2694,7 +2694,7 @@ void GuildAcceptNewMember::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleGuildAcceptNewMember(this);
 }
 
-GuildRejectNewMember::GuildRejectNewMember() : ClientPacket(ClientPacketID_GuildRejectNewMember /* 63 */), UserName(), Reason() {
+GuildRejectNewMember::GuildRejectNewMember() : ClientPacket(ClientPacketID_GuildRejectNewMember /* 63 */) {
 }
 
 GuildRejectNewMember::GuildRejectNewMember(clsByteQueue* buffer) : ClientPacket(ClientPacketID_GuildRejectNewMember /* 63 */) {
@@ -2715,7 +2715,7 @@ void GuildRejectNewMember::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleGuildRejectNewMember(this);
 }
 
-GuildKickMember::GuildKickMember() : ClientPacket(ClientPacketID_GuildKickMember /* 64 */), UserName() {
+GuildKickMember::GuildKickMember() : ClientPacket(ClientPacketID_GuildKickMember /* 64 */) {
 }
 
 GuildKickMember::GuildKickMember(clsByteQueue* buffer) : ClientPacket(ClientPacketID_GuildKickMember /* 64 */) {
@@ -2734,7 +2734,7 @@ void GuildKickMember::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleGuildKickMember(this);
 }
 
-GuildUpdateNews::GuildUpdateNews() : ClientPacket(ClientPacketID_GuildUpdateNews /* 65 */), News() {
+GuildUpdateNews::GuildUpdateNews() : ClientPacket(ClientPacketID_GuildUpdateNews /* 65 */) {
 }
 
 GuildUpdateNews::GuildUpdateNews(clsByteQueue* buffer) : ClientPacket(ClientPacketID_GuildUpdateNews /* 65 */) {
@@ -2753,7 +2753,7 @@ void GuildUpdateNews::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleGuildUpdateNews(this);
 }
 
-GuildMemberInfo::GuildMemberInfo() : ClientPacket(ClientPacketID_GuildMemberInfo /* 66 */), UserName() {
+GuildMemberInfo::GuildMemberInfo() : ClientPacket(ClientPacketID_GuildMemberInfo /* 66 */) {
 }
 
 GuildMemberInfo::GuildMemberInfo(clsByteQueue* buffer) : ClientPacket(ClientPacketID_GuildMemberInfo /* 66 */) {
@@ -2789,7 +2789,7 @@ void GuildOpenElections::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleGuildOpenElections(this);
 }
 
-GuildRequestMembership::GuildRequestMembership() : ClientPacket(ClientPacketID_GuildRequestMembership /* 68 */), Guild(), Application() {
+GuildRequestMembership::GuildRequestMembership() : ClientPacket(ClientPacketID_GuildRequestMembership /* 68 */) {
 }
 
 GuildRequestMembership::GuildRequestMembership(clsByteQueue* buffer) : ClientPacket(ClientPacketID_GuildRequestMembership /* 68 */) {
@@ -2810,7 +2810,7 @@ void GuildRequestMembership::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleGuildRequestMembership(this);
 }
 
-GuildRequestDetails::GuildRequestDetails() : ClientPacket(ClientPacketID_GuildRequestDetails /* 69 */), Guild() {
+GuildRequestDetails::GuildRequestDetails() : ClientPacket(ClientPacketID_GuildRequestDetails /* 69 */) {
 }
 
 GuildRequestDetails::GuildRequestDetails(clsByteQueue* buffer) : ClientPacket(ClientPacketID_GuildRequestDetails /* 69 */) {
@@ -3254,7 +3254,7 @@ void Inquiry::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleInquiry(this);
 }
 
-GuildMessage::GuildMessage() : ClientPacket(ClientPacketID_GuildMessage /* 95 */), Chat() {
+GuildMessage::GuildMessage() : ClientPacket(ClientPacketID_GuildMessage /* 95 */) {
 }
 
 GuildMessage::GuildMessage(clsByteQueue* buffer) : ClientPacket(ClientPacketID_GuildMessage /* 95 */) {
@@ -3273,7 +3273,7 @@ void GuildMessage::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleGuildMessage(this);
 }
 
-PartyMessage::PartyMessage() : ClientPacket(ClientPacketID_PartyMessage /* 96 */), Chat() {
+PartyMessage::PartyMessage() : ClientPacket(ClientPacketID_PartyMessage /* 96 */) {
 }
 
 PartyMessage::PartyMessage(clsByteQueue* buffer) : ClientPacket(ClientPacketID_PartyMessage /* 96 */) {
@@ -3292,7 +3292,7 @@ void PartyMessage::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handlePartyMessage(this);
 }
 
-CentinelReport::CentinelReport() : ClientPacket(ClientPacketID_CentinelReport /* 97 */), Code() {
+CentinelReport::CentinelReport() : ClientPacket(ClientPacketID_CentinelReport /* 97 */) {
 }
 
 CentinelReport::CentinelReport(clsByteQueue* buffer) : ClientPacket(ClientPacketID_CentinelReport /* 97 */) {
@@ -3345,7 +3345,7 @@ void PartyOnline::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handlePartyOnline(this);
 }
 
-CouncilMessage::CouncilMessage() : ClientPacket(ClientPacketID_CouncilMessage /* 100 */), Chat() {
+CouncilMessage::CouncilMessage() : ClientPacket(ClientPacketID_CouncilMessage /* 100 */) {
 }
 
 CouncilMessage::CouncilMessage(clsByteQueue* buffer) : ClientPacket(ClientPacketID_CouncilMessage /* 100 */) {
@@ -3364,7 +3364,7 @@ void CouncilMessage::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleCouncilMessage(this);
 }
 
-RoleMasterRequest::RoleMasterRequest() : ClientPacket(ClientPacketID_RoleMasterRequest /* 101 */), Request() {
+RoleMasterRequest::RoleMasterRequest() : ClientPacket(ClientPacketID_RoleMasterRequest /* 101 */) {
 }
 
 RoleMasterRequest::RoleMasterRequest(clsByteQueue* buffer) : ClientPacket(ClientPacketID_RoleMasterRequest /* 101 */) {
@@ -3400,7 +3400,7 @@ void GMRequest::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleGMRequest(this);
 }
 
-BugReport::BugReport() : ClientPacket(ClientPacketID_BugReport /* 103 */), Report() {
+BugReport::BugReport() : ClientPacket(ClientPacketID_BugReport /* 103 */) {
 }
 
 BugReport::BugReport(clsByteQueue* buffer) : ClientPacket(ClientPacketID_BugReport /* 103 */) {
@@ -3419,7 +3419,7 @@ void BugReport::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleBugReport(this);
 }
 
-ChangeDescription::ChangeDescription() : ClientPacket(ClientPacketID_ChangeDescription /* 104 */), Description() {
+ChangeDescription::ChangeDescription() : ClientPacket(ClientPacketID_ChangeDescription /* 104 */) {
 }
 
 ChangeDescription::ChangeDescription(clsByteQueue* buffer) : ClientPacket(ClientPacketID_ChangeDescription /* 104 */) {
@@ -3438,7 +3438,7 @@ void ChangeDescription::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleChangeDescription(this);
 }
 
-GuildVote::GuildVote() : ClientPacket(ClientPacketID_GuildVote /* 105 */), Vote() {
+GuildVote::GuildVote() : ClientPacket(ClientPacketID_GuildVote /* 105 */) {
 }
 
 GuildVote::GuildVote(clsByteQueue* buffer) : ClientPacket(ClientPacketID_GuildVote /* 105 */) {
@@ -3457,7 +3457,7 @@ void GuildVote::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleGuildVote(this);
 }
 
-Punishments::Punishments() : ClientPacket(ClientPacketID_Punishments /* 106 */), Name() {
+Punishments::Punishments() : ClientPacket(ClientPacketID_Punishments /* 106 */) {
 }
 
 Punishments::Punishments(clsByteQueue* buffer) : ClientPacket(ClientPacketID_Punishments /* 106 */) {
@@ -3476,7 +3476,7 @@ void Punishments::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handlePunishments(this);
 }
 
-ChangePassword::ChangePassword() : ClientPacket(ClientPacketID_ChangePassword /* 107 */), OldPass(), NewPass() {
+ChangePassword::ChangePassword() : ClientPacket(ClientPacketID_ChangePassword /* 107 */) {
 }
 
 ChangePassword::ChangePassword(clsByteQueue* buffer) : ClientPacket(ClientPacketID_ChangePassword /* 107 */) {
@@ -3497,7 +3497,7 @@ void ChangePassword::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleChangePassword(this);
 }
 
-Gamble::Gamble() : ClientPacket(ClientPacketID_Gamble /* 108 */), Amount() {
+Gamble::Gamble() : ClientPacket(ClientPacketID_Gamble /* 108 */) {
 }
 
 Gamble::Gamble(clsByteQueue* buffer) : ClientPacket(ClientPacketID_Gamble /* 108 */) {
@@ -3516,7 +3516,7 @@ void Gamble::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleGamble(this);
 }
 
-InquiryVote::InquiryVote() : ClientPacket(ClientPacketID_InquiryVote /* 109 */), Opt() {
+InquiryVote::InquiryVote() : ClientPacket(ClientPacketID_InquiryVote /* 109 */) {
 }
 
 InquiryVote::InquiryVote(clsByteQueue* buffer) : ClientPacket(ClientPacketID_InquiryVote /* 109 */) {
@@ -3552,7 +3552,7 @@ void LeaveFaction::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleLeaveFaction(this);
 }
 
-BankExtractGold::BankExtractGold() : ClientPacket(ClientPacketID_BankExtractGold /* 111 */), Amount() {
+BankExtractGold::BankExtractGold() : ClientPacket(ClientPacketID_BankExtractGold /* 111 */) {
 }
 
 BankExtractGold::BankExtractGold(clsByteQueue* buffer) : ClientPacket(ClientPacketID_BankExtractGold /* 111 */) {
@@ -3571,7 +3571,7 @@ void BankExtractGold::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleBankExtractGold(this);
 }
 
-BankDepositGold::BankDepositGold() : ClientPacket(ClientPacketID_BankDepositGold /* 112 */), Amount() {
+BankDepositGold::BankDepositGold() : ClientPacket(ClientPacketID_BankDepositGold /* 112 */) {
 }
 
 BankDepositGold::BankDepositGold(clsByteQueue* buffer) : ClientPacket(ClientPacketID_BankDepositGold /* 112 */) {
@@ -3590,7 +3590,7 @@ void BankDepositGold::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleBankDepositGold(this);
 }
 
-Denounce::Denounce() : ClientPacket(ClientPacketID_Denounce /* 113 */), Text() {
+Denounce::Denounce() : ClientPacket(ClientPacketID_Denounce /* 113 */) {
 }
 
 Denounce::Denounce(clsByteQueue* buffer) : ClientPacket(ClientPacketID_Denounce /* 113 */) {
@@ -3626,7 +3626,7 @@ void GuildFundate::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleGuildFundate(this);
 }
 
-GuildFundation::GuildFundation() : ClientPacket(ClientPacketID_GuildFundation /* 115 */), ClanType() {
+GuildFundation::GuildFundation() : ClientPacket(ClientPacketID_GuildFundation /* 115 */) {
 }
 
 GuildFundation::GuildFundation(clsByteQueue* buffer) : ClientPacket(ClientPacketID_GuildFundation /* 115 */) {
@@ -3645,7 +3645,7 @@ void GuildFundation::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleGuildFundation(this);
 }
 
-PartyKick::PartyKick() : ClientPacket(ClientPacketID_PartyKick /* 116 */), UserName() {
+PartyKick::PartyKick() : ClientPacket(ClientPacketID_PartyKick /* 116 */) {
 }
 
 PartyKick::PartyKick(clsByteQueue* buffer) : ClientPacket(ClientPacketID_PartyKick /* 116 */) {
@@ -3664,7 +3664,7 @@ void PartyKick::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handlePartyKick(this);
 }
 
-PartySetLeader::PartySetLeader() : ClientPacket(ClientPacketID_PartySetLeader /* 117 */), UserName() {
+PartySetLeader::PartySetLeader() : ClientPacket(ClientPacketID_PartySetLeader /* 117 */) {
 }
 
 PartySetLeader::PartySetLeader(clsByteQueue* buffer) : ClientPacket(ClientPacketID_PartySetLeader /* 117 */) {
@@ -3683,7 +3683,7 @@ void PartySetLeader::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handlePartySetLeader(this);
 }
 
-PartyAcceptMember::PartyAcceptMember() : ClientPacket(ClientPacketID_PartyAcceptMember /* 118 */), UserName() {
+PartyAcceptMember::PartyAcceptMember() : ClientPacket(ClientPacketID_PartyAcceptMember /* 118 */) {
 }
 
 PartyAcceptMember::PartyAcceptMember(clsByteQueue* buffer) : ClientPacket(ClientPacketID_PartyAcceptMember /* 118 */) {
@@ -3736,7 +3736,7 @@ void RequestPartyForm::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleRequestPartyForm(this);
 }
 
-ItemUpgrade::ItemUpgrade() : ClientPacket(ClientPacketID_ItemUpgrade /* 121 */), ItemIndex() {
+ItemUpgrade::ItemUpgrade() : ClientPacket(ClientPacketID_ItemUpgrade /* 121 */) {
 }
 
 ItemUpgrade::ItemUpgrade(clsByteQueue* buffer) : ClientPacket(ClientPacketID_ItemUpgrade /* 121 */) {
@@ -3755,18 +3755,16 @@ void ItemUpgrade::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleItemUpgrade(this);
 }
 
-GMCommands::GMCommands() : ClientPacket(ClientPacketID_GMCommands /* 122 */), composite(0) {
+GMCommands::GMCommands() : ClientPacket(ClientPacketID_GMCommands /* 122 */) {
 }
 
 GMCommands::GMCommands(clsByteQueue* buffer) : ClientPacket(ClientPacketID_GMCommands /* 122 */) {
     buffer->ReadByte(); /* PacketID */
-    composite = dakara::protocol::clientgm::ClientGMPacketFactory(buffer);
+    composite.reset(dakara::protocol::clientgm::ClientGMPacketFactory(buffer));
 /*  */
 }
 
-GMCommands::~GMCommands() {
-    if (composite) delete composite;
-}
+GMCommands::~GMCommands() {}
 
 void GMCommands::serialize(clsByteQueue* buffer) {
     composite->serialize(buffer);
@@ -3777,7 +3775,7 @@ void GMCommands::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleGMCommands(this);
 }
 
-InitCrafting::InitCrafting() : ClientPacket(ClientPacketID_InitCrafting /* 123 */), TotalItems(), ItemsPorCiclo() {
+InitCrafting::InitCrafting() : ClientPacket(ClientPacketID_InitCrafting /* 123 */) {
 }
 
 InitCrafting::InitCrafting(clsByteQueue* buffer) : ClientPacket(ClientPacketID_InitCrafting /* 123 */) {
@@ -3883,7 +3881,7 @@ void Consultation::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleConsultation(this);
 }
 
-moveItem::moveItem() : ClientPacket(ClientPacketID_moveItem /* 129 */), OldSlot(), NewSlot(), Unknown() {
+moveItem::moveItem() : ClientPacket(ClientPacketID_moveItem /* 129 */) {
 }
 
 moveItem::moveItem(clsByteQueue* buffer) : ClientPacket(ClientPacketID_moveItem /* 129 */) {
@@ -5697,7 +5695,7 @@ void ClientGMPacketDecodeAndDispatch(clsByteQueue* buffer, PacketHandler* handle
     }
 }
 
-GMMessage::GMMessage() : ClientGMPacket(ClientGMPacketID_GMMessage /* 1 */), Chat() {
+GMMessage::GMMessage() : ClientGMPacket(ClientGMPacketID_GMMessage /* 1 */) {
 }
 
 GMMessage::GMMessage(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_GMMessage /* 1 */) {
@@ -5771,7 +5769,7 @@ void OnlineChaosLegion::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleOnlineChaosLegion(this);
 }
 
-GoNearby::GoNearby() : ClientGMPacket(ClientGMPacketID_GoNearby /* 5 */), UserName() {
+GoNearby::GoNearby() : ClientGMPacket(ClientGMPacketID_GoNearby /* 5 */) {
 }
 
 GoNearby::GoNearby(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_GoNearby /* 5 */) {
@@ -5791,7 +5789,7 @@ void GoNearby::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleGoNearby(this);
 }
 
-Comment::Comment() : ClientGMPacket(ClientGMPacketID_Comment /* 6 */), Data() {
+Comment::Comment() : ClientGMPacket(ClientGMPacketID_Comment /* 6 */) {
 }
 
 Comment::Comment(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_Comment /* 6 */) {
@@ -5829,7 +5827,7 @@ void ServerTime::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleServerTime(this);
 }
 
-Where::Where() : ClientGMPacket(ClientGMPacketID_Where /* 8 */), UserName() {
+Where::Where() : ClientGMPacket(ClientGMPacketID_Where /* 8 */) {
 }
 
 Where::Where(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_Where /* 8 */) {
@@ -5849,7 +5847,7 @@ void Where::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleWhere(this);
 }
 
-CreaturesInMap::CreaturesInMap() : ClientGMPacket(ClientGMPacketID_CreaturesInMap /* 9 */), Map() {
+CreaturesInMap::CreaturesInMap() : ClientGMPacket(ClientGMPacketID_CreaturesInMap /* 9 */) {
 }
 
 CreaturesInMap::CreaturesInMap(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_CreaturesInMap /* 9 */) {
@@ -5887,7 +5885,7 @@ void WarpMeToTarget::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleWarpMeToTarget(this);
 }
 
-WarpChar::WarpChar() : ClientGMPacket(ClientGMPacketID_WarpChar /* 11 */), UserName(), Map(), X(), Y() {
+WarpChar::WarpChar() : ClientGMPacket(ClientGMPacketID_WarpChar /* 11 */) {
 }
 
 WarpChar::WarpChar(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_WarpChar /* 11 */) {
@@ -5913,7 +5911,7 @@ void WarpChar::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleWarpChar(this);
 }
 
-Silence::Silence() : ClientGMPacket(ClientGMPacketID_Silence /* 12 */), UserName() {
+Silence::Silence() : ClientGMPacket(ClientGMPacketID_Silence /* 12 */) {
 }
 
 Silence::Silence(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_Silence /* 12 */) {
@@ -5951,7 +5949,7 @@ void SOSShowList::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleSOSShowList(this);
 }
 
-SOSRemove::SOSRemove() : ClientGMPacket(ClientGMPacketID_SOSRemove /* 14 */), UserName() {
+SOSRemove::SOSRemove() : ClientGMPacket(ClientGMPacketID_SOSRemove /* 14 */) {
 }
 
 SOSRemove::SOSRemove(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_SOSRemove /* 14 */) {
@@ -5971,7 +5969,7 @@ void SOSRemove::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleSOSRemove(this);
 }
 
-GoToChar::GoToChar() : ClientGMPacket(ClientGMPacketID_GoToChar /* 15 */), UserName() {
+GoToChar::GoToChar() : ClientGMPacket(ClientGMPacketID_GoToChar /* 15 */) {
 }
 
 GoToChar::GoToChar(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_GoToChar /* 15 */) {
@@ -6081,7 +6079,7 @@ void Hiding::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleHiding(this);
 }
 
-Jail::Jail() : ClientGMPacket(ClientGMPacketID_Jail /* 21 */), UserName(), Reason(), JailTime() {
+Jail::Jail() : ClientGMPacket(ClientGMPacketID_Jail /* 21 */) {
 }
 
 Jail::Jail(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_Jail /* 21 */) {
@@ -6123,7 +6121,7 @@ void KillNPC::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleKillNPC(this);
 }
 
-WarnUser::WarnUser() : ClientGMPacket(ClientGMPacketID_WarnUser /* 23 */), UserName(), Reason() {
+WarnUser::WarnUser() : ClientGMPacket(ClientGMPacketID_WarnUser /* 23 */) {
 }
 
 WarnUser::WarnUser(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_WarnUser /* 23 */) {
@@ -6145,7 +6143,7 @@ void WarnUser::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleWarnUser(this);
 }
 
-EditChar::EditChar() : ClientGMPacket(ClientGMPacketID_EditChar /* 24 */), UserName(), Opcion(), Arg1(), Arg2() {
+EditChar::EditChar() : ClientGMPacket(ClientGMPacketID_EditChar /* 24 */) {
 }
 
 EditChar::EditChar(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_EditChar /* 24 */) {
@@ -6171,7 +6169,7 @@ void EditChar::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleEditChar(this);
 }
 
-RequestCharInfo::RequestCharInfo() : ClientGMPacket(ClientGMPacketID_RequestCharInfo /* 25 */), TargetName() {
+RequestCharInfo::RequestCharInfo() : ClientGMPacket(ClientGMPacketID_RequestCharInfo /* 25 */) {
 }
 
 RequestCharInfo::RequestCharInfo(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_RequestCharInfo /* 25 */) {
@@ -6191,7 +6189,7 @@ void RequestCharInfo::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleRequestCharInfo(this);
 }
 
-RequestCharStats::RequestCharStats() : ClientGMPacket(ClientGMPacketID_RequestCharStats /* 26 */), UserName() {
+RequestCharStats::RequestCharStats() : ClientGMPacket(ClientGMPacketID_RequestCharStats /* 26 */) {
 }
 
 RequestCharStats::RequestCharStats(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_RequestCharStats /* 26 */) {
@@ -6211,7 +6209,7 @@ void RequestCharStats::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleRequestCharStats(this);
 }
 
-RequestCharGold::RequestCharGold() : ClientGMPacket(ClientGMPacketID_RequestCharGold /* 27 */), UserName() {
+RequestCharGold::RequestCharGold() : ClientGMPacket(ClientGMPacketID_RequestCharGold /* 27 */) {
 }
 
 RequestCharGold::RequestCharGold(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_RequestCharGold /* 27 */) {
@@ -6231,7 +6229,7 @@ void RequestCharGold::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleRequestCharGold(this);
 }
 
-RequestCharInventory::RequestCharInventory() : ClientGMPacket(ClientGMPacketID_RequestCharInventory /* 28 */), UserName() {
+RequestCharInventory::RequestCharInventory() : ClientGMPacket(ClientGMPacketID_RequestCharInventory /* 28 */) {
 }
 
 RequestCharInventory::RequestCharInventory(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_RequestCharInventory /* 28 */) {
@@ -6251,7 +6249,7 @@ void RequestCharInventory::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleRequestCharInventory(this);
 }
 
-RequestCharBank::RequestCharBank() : ClientGMPacket(ClientGMPacketID_RequestCharBank /* 29 */), UserName() {
+RequestCharBank::RequestCharBank() : ClientGMPacket(ClientGMPacketID_RequestCharBank /* 29 */) {
 }
 
 RequestCharBank::RequestCharBank(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_RequestCharBank /* 29 */) {
@@ -6271,7 +6269,7 @@ void RequestCharBank::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleRequestCharBank(this);
 }
 
-RequestCharSkills::RequestCharSkills() : ClientGMPacket(ClientGMPacketID_RequestCharSkills /* 30 */), UserName() {
+RequestCharSkills::RequestCharSkills() : ClientGMPacket(ClientGMPacketID_RequestCharSkills /* 30 */) {
 }
 
 RequestCharSkills::RequestCharSkills(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_RequestCharSkills /* 30 */) {
@@ -6291,7 +6289,7 @@ void RequestCharSkills::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleRequestCharSkills(this);
 }
 
-ReviveChar::ReviveChar() : ClientGMPacket(ClientGMPacketID_ReviveChar /* 31 */), UserName() {
+ReviveChar::ReviveChar() : ClientGMPacket(ClientGMPacketID_ReviveChar /* 31 */) {
 }
 
 ReviveChar::ReviveChar(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_ReviveChar /* 31 */) {
@@ -6329,7 +6327,7 @@ void OnlineGM::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleOnlineGM(this);
 }
 
-OnlineMap::OnlineMap() : ClientGMPacket(ClientGMPacketID_OnlineMap /* 33 */), Map() {
+OnlineMap::OnlineMap() : ClientGMPacket(ClientGMPacketID_OnlineMap /* 33 */) {
 }
 
 OnlineMap::OnlineMap(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_OnlineMap /* 33 */) {
@@ -6349,7 +6347,7 @@ void OnlineMap::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleOnlineMap(this);
 }
 
-Forgive::Forgive() : ClientGMPacket(ClientGMPacketID_Forgive /* 34 */), UserName() {
+Forgive::Forgive() : ClientGMPacket(ClientGMPacketID_Forgive /* 34 */) {
 }
 
 Forgive::Forgive(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_Forgive /* 34 */) {
@@ -6369,7 +6367,7 @@ void Forgive::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleForgive(this);
 }
 
-Kick::Kick() : ClientGMPacket(ClientGMPacketID_Kick /* 35 */), UserName() {
+Kick::Kick() : ClientGMPacket(ClientGMPacketID_Kick /* 35 */) {
 }
 
 Kick::Kick(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_Kick /* 35 */) {
@@ -6389,7 +6387,7 @@ void Kick::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleKick(this);
 }
 
-Execute::Execute() : ClientGMPacket(ClientGMPacketID_Execute /* 36 */), UserName() {
+Execute::Execute() : ClientGMPacket(ClientGMPacketID_Execute /* 36 */) {
 }
 
 Execute::Execute(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_Execute /* 36 */) {
@@ -6409,7 +6407,7 @@ void Execute::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleExecute(this);
 }
 
-BanChar::BanChar() : ClientGMPacket(ClientGMPacketID_BanChar /* 37 */), UserName(), Reason() {
+BanChar::BanChar() : ClientGMPacket(ClientGMPacketID_BanChar /* 37 */) {
 }
 
 BanChar::BanChar(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_BanChar /* 37 */) {
@@ -6431,7 +6429,7 @@ void BanChar::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleBanChar(this);
 }
 
-UnbanChar::UnbanChar() : ClientGMPacket(ClientGMPacketID_UnbanChar /* 38 */), UserName() {
+UnbanChar::UnbanChar() : ClientGMPacket(ClientGMPacketID_UnbanChar /* 38 */) {
 }
 
 UnbanChar::UnbanChar(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_UnbanChar /* 38 */) {
@@ -6469,7 +6467,7 @@ void NPCFollow::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleNPCFollow(this);
 }
 
-SummonChar::SummonChar() : ClientGMPacket(ClientGMPacketID_SummonChar /* 40 */), UserName() {
+SummonChar::SummonChar() : ClientGMPacket(ClientGMPacketID_SummonChar /* 40 */) {
 }
 
 SummonChar::SummonChar(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_SummonChar /* 40 */) {
@@ -6507,7 +6505,7 @@ void SpawnListRequest::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleSpawnListRequest(this);
 }
 
-SpawnCreature::SpawnCreature() : ClientGMPacket(ClientGMPacketID_SpawnCreature /* 42 */), NPC() {
+SpawnCreature::SpawnCreature() : ClientGMPacket(ClientGMPacketID_SpawnCreature /* 42 */) {
 }
 
 SpawnCreature::SpawnCreature(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_SpawnCreature /* 42 */) {
@@ -6563,7 +6561,7 @@ void CleanWorld::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleCleanWorld(this);
 }
 
-ServerMessage::ServerMessage() : ClientGMPacket(ClientGMPacketID_ServerMessage /* 45 */), Message() {
+ServerMessage::ServerMessage() : ClientGMPacket(ClientGMPacketID_ServerMessage /* 45 */) {
 }
 
 ServerMessage::ServerMessage(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_ServerMessage /* 45 */) {
@@ -6583,7 +6581,7 @@ void ServerMessage::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleServerMessage(this);
 }
 
-NickToIP::NickToIP() : ClientGMPacket(ClientGMPacketID_NickToIP /* 46 */), UserName() {
+NickToIP::NickToIP() : ClientGMPacket(ClientGMPacketID_NickToIP /* 46 */) {
 }
 
 NickToIP::NickToIP(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_NickToIP /* 46 */) {
@@ -6603,7 +6601,7 @@ void NickToIP::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleNickToIP(this);
 }
 
-IPToNick::IPToNick() : ClientGMPacket(ClientGMPacketID_IPToNick /* 47 */), IP() {
+IPToNick::IPToNick() : ClientGMPacket(ClientGMPacketID_IPToNick /* 47 */) {
 }
 
 IPToNick::IPToNick(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_IPToNick /* 47 */) {
@@ -6623,7 +6621,7 @@ void IPToNick::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleIPToNick(this);
 }
 
-GuildOnlineMembers::GuildOnlineMembers() : ClientGMPacket(ClientGMPacketID_GuildOnlineMembers /* 48 */), GuildName() {
+GuildOnlineMembers::GuildOnlineMembers() : ClientGMPacket(ClientGMPacketID_GuildOnlineMembers /* 48 */) {
 }
 
 GuildOnlineMembers::GuildOnlineMembers(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_GuildOnlineMembers /* 48 */) {
@@ -6643,7 +6641,7 @@ void GuildOnlineMembers::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleGuildOnlineMembers(this);
 }
 
-TeleportCreate::TeleportCreate() : ClientGMPacket(ClientGMPacketID_TeleportCreate /* 49 */), Map(), X(), Y(), Radio() {
+TeleportCreate::TeleportCreate() : ClientGMPacket(ClientGMPacketID_TeleportCreate /* 49 */) {
 }
 
 TeleportCreate::TeleportCreate(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_TeleportCreate /* 49 */) {
@@ -6705,7 +6703,7 @@ void RainToggle::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleRainToggle(this);
 }
 
-SetCharDescription::SetCharDescription() : ClientGMPacket(ClientGMPacketID_SetCharDescription /* 52 */), Description() {
+SetCharDescription::SetCharDescription() : ClientGMPacket(ClientGMPacketID_SetCharDescription /* 52 */) {
 }
 
 SetCharDescription::SetCharDescription(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_SetCharDescription /* 52 */) {
@@ -6725,7 +6723,7 @@ void SetCharDescription::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleSetCharDescription(this);
 }
 
-ForceMIDIToMap::ForceMIDIToMap() : ClientGMPacket(ClientGMPacketID_ForceMIDIToMap /* 53 */), MidiID(), Map() {
+ForceMIDIToMap::ForceMIDIToMap() : ClientGMPacket(ClientGMPacketID_ForceMIDIToMap /* 53 */) {
 }
 
 ForceMIDIToMap::ForceMIDIToMap(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_ForceMIDIToMap /* 53 */) {
@@ -6747,7 +6745,7 @@ void ForceMIDIToMap::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleForceMIDIToMap(this);
 }
 
-ForceWAVEToMap::ForceWAVEToMap() : ClientGMPacket(ClientGMPacketID_ForceWAVEToMap /* 54 */), Wave(), Map(), X(), Y() {
+ForceWAVEToMap::ForceWAVEToMap() : ClientGMPacket(ClientGMPacketID_ForceWAVEToMap /* 54 */) {
 }
 
 ForceWAVEToMap::ForceWAVEToMap(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_ForceWAVEToMap /* 54 */) {
@@ -6773,7 +6771,7 @@ void ForceWAVEToMap::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleForceWAVEToMap(this);
 }
 
-RoyalArmyMessage::RoyalArmyMessage() : ClientGMPacket(ClientGMPacketID_RoyalArmyMessage /* 55 */), Message() {
+RoyalArmyMessage::RoyalArmyMessage() : ClientGMPacket(ClientGMPacketID_RoyalArmyMessage /* 55 */) {
 }
 
 RoyalArmyMessage::RoyalArmyMessage(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_RoyalArmyMessage /* 55 */) {
@@ -6793,7 +6791,7 @@ void RoyalArmyMessage::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleRoyalArmyMessage(this);
 }
 
-ChaosLegionMessage::ChaosLegionMessage() : ClientGMPacket(ClientGMPacketID_ChaosLegionMessage /* 56 */), Message() {
+ChaosLegionMessage::ChaosLegionMessage() : ClientGMPacket(ClientGMPacketID_ChaosLegionMessage /* 56 */) {
 }
 
 ChaosLegionMessage::ChaosLegionMessage(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_ChaosLegionMessage /* 56 */) {
@@ -6813,7 +6811,7 @@ void ChaosLegionMessage::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleChaosLegionMessage(this);
 }
 
-CitizenMessage::CitizenMessage() : ClientGMPacket(ClientGMPacketID_CitizenMessage /* 57 */), Message() {
+CitizenMessage::CitizenMessage() : ClientGMPacket(ClientGMPacketID_CitizenMessage /* 57 */) {
 }
 
 CitizenMessage::CitizenMessage(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_CitizenMessage /* 57 */) {
@@ -6833,7 +6831,7 @@ void CitizenMessage::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleCitizenMessage(this);
 }
 
-CriminalMessage::CriminalMessage() : ClientGMPacket(ClientGMPacketID_CriminalMessage /* 58 */), Message() {
+CriminalMessage::CriminalMessage() : ClientGMPacket(ClientGMPacketID_CriminalMessage /* 58 */) {
 }
 
 CriminalMessage::CriminalMessage(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_CriminalMessage /* 58 */) {
@@ -6853,7 +6851,7 @@ void CriminalMessage::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleCriminalMessage(this);
 }
 
-TalkAsNPC::TalkAsNPC() : ClientGMPacket(ClientGMPacketID_TalkAsNPC /* 59 */), Message() {
+TalkAsNPC::TalkAsNPC() : ClientGMPacket(ClientGMPacketID_TalkAsNPC /* 59 */) {
 }
 
 TalkAsNPC::TalkAsNPC(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_TalkAsNPC /* 59 */) {
@@ -6891,7 +6889,7 @@ void DestroyAllItemsInArea::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleDestroyAllItemsInArea(this);
 }
 
-AcceptRoyalCouncilMember::AcceptRoyalCouncilMember() : ClientGMPacket(ClientGMPacketID_AcceptRoyalCouncilMember /* 61 */), UserName() {
+AcceptRoyalCouncilMember::AcceptRoyalCouncilMember() : ClientGMPacket(ClientGMPacketID_AcceptRoyalCouncilMember /* 61 */) {
 }
 
 AcceptRoyalCouncilMember::AcceptRoyalCouncilMember(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_AcceptRoyalCouncilMember /* 61 */) {
@@ -6911,7 +6909,7 @@ void AcceptRoyalCouncilMember::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleAcceptRoyalCouncilMember(this);
 }
 
-AcceptChaosCouncilMember::AcceptChaosCouncilMember() : ClientGMPacket(ClientGMPacketID_AcceptChaosCouncilMember /* 62 */), UserName() {
+AcceptChaosCouncilMember::AcceptChaosCouncilMember() : ClientGMPacket(ClientGMPacketID_AcceptChaosCouncilMember /* 62 */) {
 }
 
 AcceptChaosCouncilMember::AcceptChaosCouncilMember(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_AcceptChaosCouncilMember /* 62 */) {
@@ -6949,7 +6947,7 @@ void ItemsInTheFloor::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleItemsInTheFloor(this);
 }
 
-MakeDumb::MakeDumb() : ClientGMPacket(ClientGMPacketID_MakeDumb /* 64 */), UserName() {
+MakeDumb::MakeDumb() : ClientGMPacket(ClientGMPacketID_MakeDumb /* 64 */) {
 }
 
 MakeDumb::MakeDumb(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_MakeDumb /* 64 */) {
@@ -6969,7 +6967,7 @@ void MakeDumb::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleMakeDumb(this);
 }
 
-MakeDumbNoMore::MakeDumbNoMore() : ClientGMPacket(ClientGMPacketID_MakeDumbNoMore /* 65 */), UserName() {
+MakeDumbNoMore::MakeDumbNoMore() : ClientGMPacket(ClientGMPacketID_MakeDumbNoMore /* 65 */) {
 }
 
 MakeDumbNoMore::MakeDumbNoMore(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_MakeDumbNoMore /* 65 */) {
@@ -7007,7 +7005,7 @@ void DumpIPTables::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleDumpIPTables(this);
 }
 
-CouncilKick::CouncilKick() : ClientGMPacket(ClientGMPacketID_CouncilKick /* 67 */), UserName() {
+CouncilKick::CouncilKick() : ClientGMPacket(ClientGMPacketID_CouncilKick /* 67 */) {
 }
 
 CouncilKick::CouncilKick(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_CouncilKick /* 67 */) {
@@ -7027,7 +7025,7 @@ void CouncilKick::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleCouncilKick(this);
 }
 
-SetTrigger::SetTrigger() : ClientGMPacket(ClientGMPacketID_SetTrigger /* 68 */), Trigger() {
+SetTrigger::SetTrigger() : ClientGMPacket(ClientGMPacketID_SetTrigger /* 68 */) {
 }
 
 SetTrigger::SetTrigger(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_SetTrigger /* 68 */) {
@@ -7101,7 +7099,7 @@ void BannedIPReload::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleBannedIPReload(this);
 }
 
-GuildMemberList::GuildMemberList() : ClientGMPacket(ClientGMPacketID_GuildMemberList /* 72 */), GuildName() {
+GuildMemberList::GuildMemberList() : ClientGMPacket(ClientGMPacketID_GuildMemberList /* 72 */) {
 }
 
 GuildMemberList::GuildMemberList(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_GuildMemberList /* 72 */) {
@@ -7121,7 +7119,7 @@ void GuildMemberList::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleGuildMemberList(this);
 }
 
-GuildBan::GuildBan() : ClientGMPacket(ClientGMPacketID_GuildBan /* 73 */), GuildName() {
+GuildBan::GuildBan() : ClientGMPacket(ClientGMPacketID_GuildBan /* 73 */) {
 }
 
 GuildBan::GuildBan(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_GuildBan /* 73 */) {
@@ -7141,7 +7139,7 @@ void GuildBan::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleGuildBan(this);
 }
 
-BanIP::BanIP() : ClientGMPacket(ClientGMPacketID_BanIP /* 74 */), IP(), Reason() {
+BanIP::BanIP() : ClientGMPacket(ClientGMPacketID_BanIP /* 74 */) {
 }
 
 BanIP::BanIP(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_BanIP /* 74 */) {
@@ -7163,7 +7161,7 @@ void BanIP::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleBanIP(this);
 }
 
-UnbanIP::UnbanIP() : ClientGMPacket(ClientGMPacketID_UnbanIP /* 75 */), IP() {
+UnbanIP::UnbanIP() : ClientGMPacket(ClientGMPacketID_UnbanIP /* 75 */) {
 }
 
 UnbanIP::UnbanIP(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_UnbanIP /* 75 */) {
@@ -7183,7 +7181,7 @@ void UnbanIP::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleUnbanIP(this);
 }
 
-CreateItem::CreateItem() : ClientGMPacket(ClientGMPacketID_CreateItem /* 76 */), Item() {
+CreateItem::CreateItem() : ClientGMPacket(ClientGMPacketID_CreateItem /* 76 */) {
 }
 
 CreateItem::CreateItem(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_CreateItem /* 76 */) {
@@ -7221,7 +7219,7 @@ void DestroyItems::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleDestroyItems(this);
 }
 
-ChaosLegionKick::ChaosLegionKick() : ClientGMPacket(ClientGMPacketID_ChaosLegionKick /* 78 */), UserName(), Reason() {
+ChaosLegionKick::ChaosLegionKick() : ClientGMPacket(ClientGMPacketID_ChaosLegionKick /* 78 */) {
 }
 
 ChaosLegionKick::ChaosLegionKick(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_ChaosLegionKick /* 78 */) {
@@ -7243,7 +7241,7 @@ void ChaosLegionKick::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleChaosLegionKick(this);
 }
 
-RoyalArmyKick::RoyalArmyKick() : ClientGMPacket(ClientGMPacketID_RoyalArmyKick /* 79 */), UserName(), Reason() {
+RoyalArmyKick::RoyalArmyKick() : ClientGMPacket(ClientGMPacketID_RoyalArmyKick /* 79 */) {
 }
 
 RoyalArmyKick::RoyalArmyKick(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_RoyalArmyKick /* 79 */) {
@@ -7265,7 +7263,7 @@ void RoyalArmyKick::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleRoyalArmyKick(this);
 }
 
-ForceMIDIAll::ForceMIDIAll() : ClientGMPacket(ClientGMPacketID_ForceMIDIAll /* 80 */), MidiID() {
+ForceMIDIAll::ForceMIDIAll() : ClientGMPacket(ClientGMPacketID_ForceMIDIAll /* 80 */) {
 }
 
 ForceMIDIAll::ForceMIDIAll(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_ForceMIDIAll /* 80 */) {
@@ -7285,7 +7283,7 @@ void ForceMIDIAll::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleForceMIDIAll(this);
 }
 
-ForceWAVEAll::ForceWAVEAll() : ClientGMPacket(ClientGMPacketID_ForceWAVEAll /* 81 */), WaveID() {
+ForceWAVEAll::ForceWAVEAll() : ClientGMPacket(ClientGMPacketID_ForceWAVEAll /* 81 */) {
 }
 
 ForceWAVEAll::ForceWAVEAll(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_ForceWAVEAll /* 81 */) {
@@ -7305,7 +7303,7 @@ void ForceWAVEAll::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleForceWAVEAll(this);
 }
 
-RemovePunishment::RemovePunishment() : ClientGMPacket(ClientGMPacketID_RemovePunishment /* 82 */), UserName(), Punishment(), NewText() {
+RemovePunishment::RemovePunishment() : ClientGMPacket(ClientGMPacketID_RemovePunishment /* 82 */) {
 }
 
 RemovePunishment::RemovePunishment(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_RemovePunishment /* 82 */) {
@@ -7383,7 +7381,7 @@ void KillAllNearbyNPCs::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleKillAllNearbyNPCs(this);
 }
 
-LastIP::LastIP() : ClientGMPacket(ClientGMPacketID_LastIP /* 86 */), UserName() {
+LastIP::LastIP() : ClientGMPacket(ClientGMPacketID_LastIP /* 86 */) {
 }
 
 LastIP::LastIP(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_LastIP /* 86 */) {
@@ -7421,7 +7419,7 @@ void ChangeMOTD::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleChangeMOTD(this);
 }
 
-SetMOTD::SetMOTD() : ClientGMPacket(ClientGMPacketID_SetMOTD /* 88 */), Motd() {
+SetMOTD::SetMOTD() : ClientGMPacket(ClientGMPacketID_SetMOTD /* 88 */) {
 }
 
 SetMOTD::SetMOTD(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_SetMOTD /* 88 */) {
@@ -7441,7 +7439,7 @@ void SetMOTD::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleSetMOTD(this);
 }
 
-SystemMessage::SystemMessage() : ClientGMPacket(ClientGMPacketID_SystemMessage /* 89 */), Message() {
+SystemMessage::SystemMessage() : ClientGMPacket(ClientGMPacketID_SystemMessage /* 89 */) {
 }
 
 SystemMessage::SystemMessage(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_SystemMessage /* 89 */) {
@@ -7461,7 +7459,7 @@ void SystemMessage::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleSystemMessage(this);
 }
 
-CreateNPC::CreateNPC() : ClientGMPacket(ClientGMPacketID_CreateNPC /* 90 */), NpcIndex() {
+CreateNPC::CreateNPC() : ClientGMPacket(ClientGMPacketID_CreateNPC /* 90 */) {
 }
 
 CreateNPC::CreateNPC(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_CreateNPC /* 90 */) {
@@ -7481,7 +7479,7 @@ void CreateNPC::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleCreateNPC(this);
 }
 
-CreateNPCWithRespawn::CreateNPCWithRespawn() : ClientGMPacket(ClientGMPacketID_CreateNPCWithRespawn /* 91 */), NpcIndex() {
+CreateNPCWithRespawn::CreateNPCWithRespawn() : ClientGMPacket(ClientGMPacketID_CreateNPCWithRespawn /* 91 */) {
 }
 
 CreateNPCWithRespawn::CreateNPCWithRespawn(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_CreateNPCWithRespawn /* 91 */) {
@@ -7501,7 +7499,7 @@ void CreateNPCWithRespawn::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleCreateNPCWithRespawn(this);
 }
 
-ImperialArmour::ImperialArmour() : ClientGMPacket(ClientGMPacketID_ImperialArmour /* 92 */), Index(), ObjIndex() {
+ImperialArmour::ImperialArmour() : ClientGMPacket(ClientGMPacketID_ImperialArmour /* 92 */) {
 }
 
 ImperialArmour::ImperialArmour(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_ImperialArmour /* 92 */) {
@@ -7523,7 +7521,7 @@ void ImperialArmour::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleImperialArmour(this);
 }
 
-ChaosArmour::ChaosArmour() : ClientGMPacket(ClientGMPacketID_ChaosArmour /* 93 */), Index(), ObjIndex() {
+ChaosArmour::ChaosArmour() : ClientGMPacket(ClientGMPacketID_ChaosArmour /* 93 */) {
 }
 
 ChaosArmour::ChaosArmour(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_ChaosArmour /* 93 */) {
@@ -7599,7 +7597,7 @@ void TurnOffServer::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleTurnOffServer(this);
 }
 
-TurnCriminal::TurnCriminal() : ClientGMPacket(ClientGMPacketID_TurnCriminal /* 97 */), UserName() {
+TurnCriminal::TurnCriminal() : ClientGMPacket(ClientGMPacketID_TurnCriminal /* 97 */) {
 }
 
 TurnCriminal::TurnCriminal(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_TurnCriminal /* 97 */) {
@@ -7619,7 +7617,7 @@ void TurnCriminal::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleTurnCriminal(this);
 }
 
-ResetFactions::ResetFactions() : ClientGMPacket(ClientGMPacketID_ResetFactions /* 98 */), UserName() {
+ResetFactions::ResetFactions() : ClientGMPacket(ClientGMPacketID_ResetFactions /* 98 */) {
 }
 
 ResetFactions::ResetFactions(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_ResetFactions /* 98 */) {
@@ -7639,7 +7637,7 @@ void ResetFactions::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleResetFactions(this);
 }
 
-RemoveCharFromGuild::RemoveCharFromGuild() : ClientGMPacket(ClientGMPacketID_RemoveCharFromGuild /* 99 */), UserName() {
+RemoveCharFromGuild::RemoveCharFromGuild() : ClientGMPacket(ClientGMPacketID_RemoveCharFromGuild /* 99 */) {
 }
 
 RemoveCharFromGuild::RemoveCharFromGuild(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_RemoveCharFromGuild /* 99 */) {
@@ -7659,7 +7657,7 @@ void RemoveCharFromGuild::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleRemoveCharFromGuild(this);
 }
 
-RequestCharMail::RequestCharMail() : ClientGMPacket(ClientGMPacketID_RequestCharMail /* 100 */), UserName() {
+RequestCharMail::RequestCharMail() : ClientGMPacket(ClientGMPacketID_RequestCharMail /* 100 */) {
 }
 
 RequestCharMail::RequestCharMail(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_RequestCharMail /* 100 */) {
@@ -7679,7 +7677,7 @@ void RequestCharMail::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleRequestCharMail(this);
 }
 
-AlterPassword::AlterPassword() : ClientGMPacket(ClientGMPacketID_AlterPassword /* 101 */), UserName(), CopyFrom() {
+AlterPassword::AlterPassword() : ClientGMPacket(ClientGMPacketID_AlterPassword /* 101 */) {
 }
 
 AlterPassword::AlterPassword(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_AlterPassword /* 101 */) {
@@ -7701,7 +7699,7 @@ void AlterPassword::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleAlterPassword(this);
 }
 
-AlterMail::AlterMail() : ClientGMPacket(ClientGMPacketID_AlterMail /* 102 */), UserName(), NewMail() {
+AlterMail::AlterMail() : ClientGMPacket(ClientGMPacketID_AlterMail /* 102 */) {
 }
 
 AlterMail::AlterMail(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_AlterMail /* 102 */) {
@@ -7723,7 +7721,7 @@ void AlterMail::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleAlterMail(this);
 }
 
-AlterName::AlterName() : ClientGMPacket(ClientGMPacketID_AlterName /* 103 */), UserName(), NewName() {
+AlterName::AlterName() : ClientGMPacket(ClientGMPacketID_AlterName /* 103 */) {
 }
 
 AlterName::AlterName(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_AlterName /* 103 */) {
@@ -7781,7 +7779,7 @@ void DoBackUp::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleDoBackUp(this);
 }
 
-ShowGuildMessages::ShowGuildMessages() : ClientGMPacket(ClientGMPacketID_ShowGuildMessages /* 106 */), GuildName() {
+ShowGuildMessages::ShowGuildMessages() : ClientGMPacket(ClientGMPacketID_ShowGuildMessages /* 106 */) {
 }
 
 ShowGuildMessages::ShowGuildMessages(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_ShowGuildMessages /* 106 */) {
@@ -7819,7 +7817,7 @@ void SaveMap::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleSaveMap(this);
 }
 
-ChangeMapInfoPK::ChangeMapInfoPK() : ClientGMPacket(ClientGMPacketID_ChangeMapInfoPK /* 108 */), Pk() {
+ChangeMapInfoPK::ChangeMapInfoPK() : ClientGMPacket(ClientGMPacketID_ChangeMapInfoPK /* 108 */) {
 }
 
 ChangeMapInfoPK::ChangeMapInfoPK(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_ChangeMapInfoPK /* 108 */) {
@@ -7839,7 +7837,7 @@ void ChangeMapInfoPK::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleChangeMapInfoPK(this);
 }
 
-ChangeMapInfoBackup::ChangeMapInfoBackup() : ClientGMPacket(ClientGMPacketID_ChangeMapInfoBackup /* 109 */), Backup() {
+ChangeMapInfoBackup::ChangeMapInfoBackup() : ClientGMPacket(ClientGMPacketID_ChangeMapInfoBackup /* 109 */) {
 }
 
 ChangeMapInfoBackup::ChangeMapInfoBackup(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_ChangeMapInfoBackup /* 109 */) {
@@ -7859,7 +7857,7 @@ void ChangeMapInfoBackup::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleChangeMapInfoBackup(this);
 }
 
-ChangeMapInfoRestricted::ChangeMapInfoRestricted() : ClientGMPacket(ClientGMPacketID_ChangeMapInfoRestricted /* 110 */), RestrictedTo() {
+ChangeMapInfoRestricted::ChangeMapInfoRestricted() : ClientGMPacket(ClientGMPacketID_ChangeMapInfoRestricted /* 110 */) {
 }
 
 ChangeMapInfoRestricted::ChangeMapInfoRestricted(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_ChangeMapInfoRestricted /* 110 */) {
@@ -7879,7 +7877,7 @@ void ChangeMapInfoRestricted::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleChangeMapInfoRestricted(this);
 }
 
-ChangeMapInfoNoMagic::ChangeMapInfoNoMagic() : ClientGMPacket(ClientGMPacketID_ChangeMapInfoNoMagic /* 111 */), NoMagic() {
+ChangeMapInfoNoMagic::ChangeMapInfoNoMagic() : ClientGMPacket(ClientGMPacketID_ChangeMapInfoNoMagic /* 111 */) {
 }
 
 ChangeMapInfoNoMagic::ChangeMapInfoNoMagic(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_ChangeMapInfoNoMagic /* 111 */) {
@@ -7899,7 +7897,7 @@ void ChangeMapInfoNoMagic::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleChangeMapInfoNoMagic(this);
 }
 
-ChangeMapInfoNoInvi::ChangeMapInfoNoInvi() : ClientGMPacket(ClientGMPacketID_ChangeMapInfoNoInvi /* 112 */), NoInvi() {
+ChangeMapInfoNoInvi::ChangeMapInfoNoInvi() : ClientGMPacket(ClientGMPacketID_ChangeMapInfoNoInvi /* 112 */) {
 }
 
 ChangeMapInfoNoInvi::ChangeMapInfoNoInvi(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_ChangeMapInfoNoInvi /* 112 */) {
@@ -7919,7 +7917,7 @@ void ChangeMapInfoNoInvi::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleChangeMapInfoNoInvi(this);
 }
 
-ChangeMapInfoNoResu::ChangeMapInfoNoResu() : ClientGMPacket(ClientGMPacketID_ChangeMapInfoNoResu /* 113 */), NoResu() {
+ChangeMapInfoNoResu::ChangeMapInfoNoResu() : ClientGMPacket(ClientGMPacketID_ChangeMapInfoNoResu /* 113 */) {
 }
 
 ChangeMapInfoNoResu::ChangeMapInfoNoResu(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_ChangeMapInfoNoResu /* 113 */) {
@@ -7939,7 +7937,7 @@ void ChangeMapInfoNoResu::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleChangeMapInfoNoResu(this);
 }
 
-ChangeMapInfoLand::ChangeMapInfoLand() : ClientGMPacket(ClientGMPacketID_ChangeMapInfoLand /* 114 */), Data() {
+ChangeMapInfoLand::ChangeMapInfoLand() : ClientGMPacket(ClientGMPacketID_ChangeMapInfoLand /* 114 */) {
 }
 
 ChangeMapInfoLand::ChangeMapInfoLand(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_ChangeMapInfoLand /* 114 */) {
@@ -7959,7 +7957,7 @@ void ChangeMapInfoLand::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleChangeMapInfoLand(this);
 }
 
-ChangeMapInfoZone::ChangeMapInfoZone() : ClientGMPacket(ClientGMPacketID_ChangeMapInfoZone /* 115 */), Data() {
+ChangeMapInfoZone::ChangeMapInfoZone() : ClientGMPacket(ClientGMPacketID_ChangeMapInfoZone /* 115 */) {
 }
 
 ChangeMapInfoZone::ChangeMapInfoZone(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_ChangeMapInfoZone /* 115 */) {
@@ -7979,7 +7977,7 @@ void ChangeMapInfoZone::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleChangeMapInfoZone(this);
 }
 
-ChangeMapInfoStealNpc::ChangeMapInfoStealNpc() : ClientGMPacket(ClientGMPacketID_ChangeMapInfoStealNpc /* 116 */), RoboNpc() {
+ChangeMapInfoStealNpc::ChangeMapInfoStealNpc() : ClientGMPacket(ClientGMPacketID_ChangeMapInfoStealNpc /* 116 */) {
 }
 
 ChangeMapInfoStealNpc::ChangeMapInfoStealNpc(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_ChangeMapInfoStealNpc /* 116 */) {
@@ -7999,7 +7997,7 @@ void ChangeMapInfoStealNpc::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleChangeMapInfoStealNpc(this);
 }
 
-ChangeMapInfoNoOcultar::ChangeMapInfoNoOcultar() : ClientGMPacket(ClientGMPacketID_ChangeMapInfoNoOcultar /* 117 */), NoOcultar() {
+ChangeMapInfoNoOcultar::ChangeMapInfoNoOcultar() : ClientGMPacket(ClientGMPacketID_ChangeMapInfoNoOcultar /* 117 */) {
 }
 
 ChangeMapInfoNoOcultar::ChangeMapInfoNoOcultar(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_ChangeMapInfoNoOcultar /* 117 */) {
@@ -8019,7 +8017,7 @@ void ChangeMapInfoNoOcultar::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleChangeMapInfoNoOcultar(this);
 }
 
-ChangeMapInfoNoInvocar::ChangeMapInfoNoInvocar() : ClientGMPacket(ClientGMPacketID_ChangeMapInfoNoInvocar /* 118 */), NoInvocar() {
+ChangeMapInfoNoInvocar::ChangeMapInfoNoInvocar() : ClientGMPacket(ClientGMPacketID_ChangeMapInfoNoInvocar /* 118 */) {
 }
 
 ChangeMapInfoNoInvocar::ChangeMapInfoNoInvocar(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_ChangeMapInfoNoInvocar /* 118 */) {
@@ -8237,7 +8235,7 @@ void ResetAutoUpdate::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleResetAutoUpdate(this);
 }
 
-ChatColor::ChatColor() : ClientGMPacket(ClientGMPacketID_ChatColor /* 130 */), R(), G(), B() {
+ChatColor::ChatColor() : ClientGMPacket(ClientGMPacketID_ChatColor /* 130 */) {
 }
 
 ChatColor::ChatColor(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_ChatColor /* 130 */) {
@@ -8279,7 +8277,7 @@ void Ignored::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleIgnored(this);
 }
 
-CheckSlot::CheckSlot() : ClientGMPacket(ClientGMPacketID_CheckSlot /* 132 */), UserName(), Slot() {
+CheckSlot::CheckSlot() : ClientGMPacket(ClientGMPacketID_CheckSlot /* 132 */) {
 }
 
 CheckSlot::CheckSlot(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_CheckSlot /* 132 */) {
@@ -8301,7 +8299,7 @@ void CheckSlot::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleCheckSlot(this);
 }
 
-SetIniVar::SetIniVar() : ClientGMPacket(ClientGMPacketID_SetIniVar /* 133 */), Seccion(), Clave(), Valor() {
+SetIniVar::SetIniVar() : ClientGMPacket(ClientGMPacketID_SetIniVar /* 133 */) {
 }
 
 SetIniVar::SetIniVar(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_SetIniVar /* 133 */) {
@@ -8325,7 +8323,7 @@ void SetIniVar::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleSetIniVar(this);
 }
 
-CreatePretorianClan::CreatePretorianClan() : ClientGMPacket(ClientGMPacketID_CreatePretorianClan /* 134 */), Map(), X(), Y() {
+CreatePretorianClan::CreatePretorianClan() : ClientGMPacket(ClientGMPacketID_CreatePretorianClan /* 134 */) {
 }
 
 CreatePretorianClan::CreatePretorianClan(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_CreatePretorianClan /* 134 */) {
@@ -8349,7 +8347,7 @@ void CreatePretorianClan::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleCreatePretorianClan(this);
 }
 
-RemovePretorianClan::RemovePretorianClan() : ClientGMPacket(ClientGMPacketID_RemovePretorianClan /* 135 */), Map() {
+RemovePretorianClan::RemovePretorianClan() : ClientGMPacket(ClientGMPacketID_RemovePretorianClan /* 135 */) {
 }
 
 RemovePretorianClan::RemovePretorianClan(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_RemovePretorianClan /* 135 */) {
@@ -8405,7 +8403,7 @@ void ShowDenouncesList::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleShowDenouncesList(this);
 }
 
-MapMessage::MapMessage() : ClientGMPacket(ClientGMPacketID_MapMessage /* 138 */), Map() {
+MapMessage::MapMessage() : ClientGMPacket(ClientGMPacketID_MapMessage /* 138 */) {
 }
 
 MapMessage::MapMessage(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_MapMessage /* 138 */) {
@@ -8425,7 +8423,7 @@ void MapMessage::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleMapMessage(this);
 }
 
-SetDialog::SetDialog() : ClientGMPacket(ClientGMPacketID_SetDialog /* 139 */), Message() {
+SetDialog::SetDialog() : ClientGMPacket(ClientGMPacketID_SetDialog /* 139 */) {
 }
 
 SetDialog::SetDialog(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_SetDialog /* 139 */) {
@@ -8481,7 +8479,7 @@ void Imitate::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleImitate(this);
 }
 
-RecordAdd::RecordAdd() : ClientGMPacket(ClientGMPacketID_RecordAdd /* 142 */), UserName(), Reason() {
+RecordAdd::RecordAdd() : ClientGMPacket(ClientGMPacketID_RecordAdd /* 142 */) {
 }
 
 RecordAdd::RecordAdd(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_RecordAdd /* 142 */) {
@@ -8503,7 +8501,7 @@ void RecordAdd::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleRecordAdd(this);
 }
 
-RecordRemove::RecordRemove() : ClientGMPacket(ClientGMPacketID_RecordRemove /* 143 */), Index() {
+RecordRemove::RecordRemove() : ClientGMPacket(ClientGMPacketID_RecordRemove /* 143 */) {
 }
 
 RecordRemove::RecordRemove(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_RecordRemove /* 143 */) {
@@ -8523,7 +8521,7 @@ void RecordRemove::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleRecordRemove(this);
 }
 
-RecordAddObs::RecordAddObs() : ClientGMPacket(ClientGMPacketID_RecordAddObs /* 144 */), Index(), Obs() {
+RecordAddObs::RecordAddObs() : ClientGMPacket(ClientGMPacketID_RecordAddObs /* 144 */) {
 }
 
 RecordAddObs::RecordAddObs(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_RecordAddObs /* 144 */) {
@@ -8563,7 +8561,7 @@ void RecordListRequest::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleRecordListRequest(this);
 }
 
-RecordDetailsRequest::RecordDetailsRequest() : ClientGMPacket(ClientGMPacketID_RecordDetailsRequest /* 146 */), Index() {
+RecordDetailsRequest::RecordDetailsRequest() : ClientGMPacket(ClientGMPacketID_RecordDetailsRequest /* 146 */) {
 }
 
 RecordDetailsRequest::RecordDetailsRequest(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_RecordDetailsRequest /* 146 */) {
@@ -8583,7 +8581,7 @@ void RecordDetailsRequest::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleRecordDetailsRequest(this);
 }
 
-AlterGuildName::AlterGuildName() : ClientGMPacket(ClientGMPacketID_AlterGuildName /* 147 */), OldGuildName(), NewGuildName() {
+AlterGuildName::AlterGuildName() : ClientGMPacket(ClientGMPacketID_AlterGuildName /* 147 */) {
 }
 
 AlterGuildName::AlterGuildName(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_AlterGuildName /* 147 */) {
@@ -8605,7 +8603,7 @@ void AlterGuildName::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleAlterGuildName(this);
 }
 
-HigherAdminsMessage::HigherAdminsMessage() : ClientGMPacket(ClientGMPacketID_HigherAdminsMessage /* 148 */), Message() {
+HigherAdminsMessage::HigherAdminsMessage() : ClientGMPacket(ClientGMPacketID_HigherAdminsMessage /* 148 */) {
 }
 
 HigherAdminsMessage::HigherAdminsMessage(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_HigherAdminsMessage /* 148 */) {
@@ -9983,7 +9981,7 @@ void ServerPacketDecodeAndDispatch(clsByteQueue* buffer, PacketHandler* handler)
     }
 }
 
-Logged::Logged() : ServerPacket(ServerPacketID_Logged /* 0 */), Clase() {
+Logged::Logged() : ServerPacket(ServerPacketID_Logged /* 0 */) {
 }
 
 Logged::Logged(clsByteQueue* buffer) : ServerPacket(ServerPacketID_Logged /* 0 */) {
@@ -10024,11 +10022,13 @@ RemoveCharDialog::RemoveCharDialog() : ServerPacket(ServerPacketID_RemoveCharDia
 
 RemoveCharDialog::RemoveCharDialog(clsByteQueue* buffer) : ServerPacket(ServerPacketID_RemoveCharDialog /* 2 */) {
     buffer->ReadByte(); /* PacketID */
+    CharIndex = buffer->ReadInteger();
 
 }
 
 void RemoveCharDialog::serialize(clsByteQueue* buffer) {
     buffer->WriteByte(ServerPacketID_RemoveCharDialog); /* PacketID: 2 */
+    buffer->WriteInteger(CharIndex);
 
 }
 
@@ -10121,7 +10121,7 @@ void CommerceInit::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleCommerceInit(this);
 }
 
-BankInit::BankInit() : ServerPacket(ServerPacketID_BankInit /* 8 */), Banco() {
+BankInit::BankInit() : ServerPacket(ServerPacketID_BankInit /* 8 */) {
 }
 
 BankInit::BankInit(clsByteQueue* buffer) : ServerPacket(ServerPacketID_BankInit /* 8 */) {
@@ -10140,7 +10140,7 @@ void BankInit::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleBankInit(this);
 }
 
-UserCommerceInit::UserCommerceInit() : ServerPacket(ServerPacketID_UserCommerceInit /* 9 */), DestUserName() {
+UserCommerceInit::UserCommerceInit() : ServerPacket(ServerPacketID_UserCommerceInit /* 9 */) {
 }
 
 UserCommerceInit::UserCommerceInit(clsByteQueue* buffer) : ServerPacket(ServerPacketID_UserCommerceInit /* 9 */) {
@@ -10193,7 +10193,7 @@ void UserOfferConfirm::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleUserOfferConfirm(this);
 }
 
-CommerceChat::CommerceChat() : ServerPacket(ServerPacketID_CommerceChat /* 12 */), Chat(), FontIndex() {
+CommerceChat::CommerceChat() : ServerPacket(ServerPacketID_CommerceChat /* 12 */) {
 }
 
 CommerceChat::CommerceChat(clsByteQueue* buffer) : ServerPacket(ServerPacketID_CommerceChat /* 12 */) {
@@ -10248,7 +10248,7 @@ void ShowCarpenterForm::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleShowCarpenterForm(this);
 }
 
-UpdateSta::UpdateSta() : ServerPacket(ServerPacketID_UpdateSta /* 15 */), Value() {
+UpdateSta::UpdateSta() : ServerPacket(ServerPacketID_UpdateSta /* 15 */) {
 }
 
 UpdateSta::UpdateSta(clsByteQueue* buffer) : ServerPacket(ServerPacketID_UpdateSta /* 15 */) {
@@ -10267,7 +10267,7 @@ void UpdateSta::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleUpdateSta(this);
 }
 
-UpdateMana::UpdateMana() : ServerPacket(ServerPacketID_UpdateMana /* 16 */), Value() {
+UpdateMana::UpdateMana() : ServerPacket(ServerPacketID_UpdateMana /* 16 */) {
 }
 
 UpdateMana::UpdateMana(clsByteQueue* buffer) : ServerPacket(ServerPacketID_UpdateMana /* 16 */) {
@@ -10286,7 +10286,7 @@ void UpdateMana::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleUpdateMana(this);
 }
 
-UpdateHP::UpdateHP() : ServerPacket(ServerPacketID_UpdateHP /* 17 */), Value() {
+UpdateHP::UpdateHP() : ServerPacket(ServerPacketID_UpdateHP /* 17 */) {
 }
 
 UpdateHP::UpdateHP(clsByteQueue* buffer) : ServerPacket(ServerPacketID_UpdateHP /* 17 */) {
@@ -10305,7 +10305,7 @@ void UpdateHP::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleUpdateHP(this);
 }
 
-UpdateGold::UpdateGold() : ServerPacket(ServerPacketID_UpdateGold /* 18 */), Value() {
+UpdateGold::UpdateGold() : ServerPacket(ServerPacketID_UpdateGold /* 18 */) {
 }
 
 UpdateGold::UpdateGold(clsByteQueue* buffer) : ServerPacket(ServerPacketID_UpdateGold /* 18 */) {
@@ -10324,7 +10324,7 @@ void UpdateGold::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleUpdateGold(this);
 }
 
-UpdateBankGold::UpdateBankGold() : ServerPacket(ServerPacketID_UpdateBankGold /* 19 */), Value() {
+UpdateBankGold::UpdateBankGold() : ServerPacket(ServerPacketID_UpdateBankGold /* 19 */) {
 }
 
 UpdateBankGold::UpdateBankGold(clsByteQueue* buffer) : ServerPacket(ServerPacketID_UpdateBankGold /* 19 */) {
@@ -10343,7 +10343,7 @@ void UpdateBankGold::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleUpdateBankGold(this);
 }
 
-UpdateExp::UpdateExp() : ServerPacket(ServerPacketID_UpdateExp /* 20 */), Value() {
+UpdateExp::UpdateExp() : ServerPacket(ServerPacketID_UpdateExp /* 20 */) {
 }
 
 UpdateExp::UpdateExp(clsByteQueue* buffer) : ServerPacket(ServerPacketID_UpdateExp /* 20 */) {
@@ -10362,7 +10362,7 @@ void UpdateExp::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleUpdateExp(this);
 }
 
-ChangeMap::ChangeMap() : ServerPacket(ServerPacketID_ChangeMap /* 21 */), Map(), Version() {
+ChangeMap::ChangeMap() : ServerPacket(ServerPacketID_ChangeMap /* 21 */) {
 }
 
 ChangeMap::ChangeMap(clsByteQueue* buffer) : ServerPacket(ServerPacketID_ChangeMap /* 21 */) {
@@ -10383,7 +10383,7 @@ void ChangeMap::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleChangeMap(this);
 }
 
-PosUpdate::PosUpdate() : ServerPacket(ServerPacketID_PosUpdate /* 22 */), X(), Y() {
+PosUpdate::PosUpdate() : ServerPacket(ServerPacketID_PosUpdate /* 22 */) {
 }
 
 PosUpdate::PosUpdate(clsByteQueue* buffer) : ServerPacket(ServerPacketID_PosUpdate /* 22 */) {
@@ -10404,7 +10404,7 @@ void PosUpdate::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handlePosUpdate(this);
 }
 
-ChatOverHead::ChatOverHead() : ServerPacket(ServerPacketID_ChatOverHead /* 23 */), Chat(), CharIndex(), R(), G(), B() {
+ChatOverHead::ChatOverHead() : ServerPacket(ServerPacketID_ChatOverHead /* 23 */) {
 }
 
 ChatOverHead::ChatOverHead(clsByteQueue* buffer) : ServerPacket(ServerPacketID_ChatOverHead /* 23 */) {
@@ -10431,7 +10431,7 @@ void ChatOverHead::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleChatOverHead(this);
 }
 
-ConsoleMsg::ConsoleMsg() : ServerPacket(ServerPacketID_ConsoleMsg /* 24 */), Chat(), FontIndex() {
+ConsoleMsg::ConsoleMsg() : ServerPacket(ServerPacketID_ConsoleMsg /* 24 */) {
 }
 
 ConsoleMsg::ConsoleMsg(clsByteQueue* buffer) : ServerPacket(ServerPacketID_ConsoleMsg /* 24 */) {
@@ -10452,7 +10452,7 @@ void ConsoleMsg::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleConsoleMsg(this);
 }
 
-GuildChat::GuildChat() : ServerPacket(ServerPacketID_GuildChat /* 25 */), Chat() {
+GuildChat::GuildChat() : ServerPacket(ServerPacketID_GuildChat /* 25 */) {
 }
 
 GuildChat::GuildChat(clsByteQueue* buffer) : ServerPacket(ServerPacketID_GuildChat /* 25 */) {
@@ -10471,7 +10471,7 @@ void GuildChat::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleGuildChat(this);
 }
 
-ShowMessageBox::ShowMessageBox() : ServerPacket(ServerPacketID_ShowMessageBox /* 26 */), Chat() {
+ShowMessageBox::ShowMessageBox() : ServerPacket(ServerPacketID_ShowMessageBox /* 26 */) {
 }
 
 ShowMessageBox::ShowMessageBox(clsByteQueue* buffer) : ServerPacket(ServerPacketID_ShowMessageBox /* 26 */) {
@@ -10490,7 +10490,7 @@ void ShowMessageBox::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleShowMessageBox(this);
 }
 
-UserIndexInServer::UserIndexInServer() : ServerPacket(ServerPacketID_UserIndexInServer /* 27 */), UserIndex() {
+UserIndexInServer::UserIndexInServer() : ServerPacket(ServerPacketID_UserIndexInServer /* 27 */) {
 }
 
 UserIndexInServer::UserIndexInServer(clsByteQueue* buffer) : ServerPacket(ServerPacketID_UserIndexInServer /* 27 */) {
@@ -10509,7 +10509,7 @@ void UserIndexInServer::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleUserIndexInServer(this);
 }
 
-UserCharIndexInServer::UserCharIndexInServer() : ServerPacket(ServerPacketID_UserCharIndexInServer /* 28 */), CharIndex() {
+UserCharIndexInServer::UserCharIndexInServer() : ServerPacket(ServerPacketID_UserCharIndexInServer /* 28 */) {
 }
 
 UserCharIndexInServer::UserCharIndexInServer(clsByteQueue* buffer) : ServerPacket(ServerPacketID_UserCharIndexInServer /* 28 */) {
@@ -10528,7 +10528,7 @@ void UserCharIndexInServer::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleUserCharIndexInServer(this);
 }
 
-CharacterCreate::CharacterCreate() : ServerPacket(ServerPacketID_CharacterCreate /* 29 */), CharIndex(), Body(), Head(), Heading(), X(), Y(), Weapon(), Shield(), Helmet(), FX(), FXLoops(), Name(), NickColor(), Privileges() {
+CharacterCreate::CharacterCreate() : ServerPacket(ServerPacketID_CharacterCreate /* 29 */) {
 }
 
 CharacterCreate::CharacterCreate(clsByteQueue* buffer) : ServerPacket(ServerPacketID_CharacterCreate /* 29 */) {
@@ -10573,7 +10573,7 @@ void CharacterCreate::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleCharacterCreate(this);
 }
 
-CharacterRemove::CharacterRemove() : ServerPacket(ServerPacketID_CharacterRemove /* 30 */), CharIndex() {
+CharacterRemove::CharacterRemove() : ServerPacket(ServerPacketID_CharacterRemove /* 30 */) {
 }
 
 CharacterRemove::CharacterRemove(clsByteQueue* buffer) : ServerPacket(ServerPacketID_CharacterRemove /* 30 */) {
@@ -10592,7 +10592,7 @@ void CharacterRemove::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleCharacterRemove(this);
 }
 
-CharacterChangeNick::CharacterChangeNick() : ServerPacket(ServerPacketID_CharacterChangeNick /* 31 */), CharIndex(), NewName() {
+CharacterChangeNick::CharacterChangeNick() : ServerPacket(ServerPacketID_CharacterChangeNick /* 31 */) {
 }
 
 CharacterChangeNick::CharacterChangeNick(clsByteQueue* buffer) : ServerPacket(ServerPacketID_CharacterChangeNick /* 31 */) {
@@ -10613,7 +10613,7 @@ void CharacterChangeNick::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleCharacterChangeNick(this);
 }
 
-CharacterMove::CharacterMove() : ServerPacket(ServerPacketID_CharacterMove /* 32 */), CharIndex(), X(), Y() {
+CharacterMove::CharacterMove() : ServerPacket(ServerPacketID_CharacterMove /* 32 */) {
 }
 
 CharacterMove::CharacterMove(clsByteQueue* buffer) : ServerPacket(ServerPacketID_CharacterMove /* 32 */) {
@@ -10636,7 +10636,7 @@ void CharacterMove::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleCharacterMove(this);
 }
 
-ForceCharMove::ForceCharMove() : ServerPacket(ServerPacketID_ForceCharMove /* 33 */), Direction() {
+ForceCharMove::ForceCharMove() : ServerPacket(ServerPacketID_ForceCharMove /* 33 */) {
 }
 
 ForceCharMove::ForceCharMove(clsByteQueue* buffer) : ServerPacket(ServerPacketID_ForceCharMove /* 33 */) {
@@ -10655,7 +10655,7 @@ void ForceCharMove::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleForceCharMove(this);
 }
 
-CharacterChange::CharacterChange() : ServerPacket(ServerPacketID_CharacterChange /* 34 */), CharIndex(), Body(), Head(), Heading(), Weapon(), Shield(), Helmet(), FX(), FXLoops() {
+CharacterChange::CharacterChange() : ServerPacket(ServerPacketID_CharacterChange /* 34 */) {
 }
 
 CharacterChange::CharacterChange(clsByteQueue* buffer) : ServerPacket(ServerPacketID_CharacterChange /* 34 */) {
@@ -10690,7 +10690,7 @@ void CharacterChange::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleCharacterChange(this);
 }
 
-ObjectCreate::ObjectCreate() : ServerPacket(ServerPacketID_ObjectCreate /* 35 */), X(), Y(), GrhIndex() {
+ObjectCreate::ObjectCreate() : ServerPacket(ServerPacketID_ObjectCreate /* 35 */) {
 }
 
 ObjectCreate::ObjectCreate(clsByteQueue* buffer) : ServerPacket(ServerPacketID_ObjectCreate /* 35 */) {
@@ -10713,7 +10713,7 @@ void ObjectCreate::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleObjectCreate(this);
 }
 
-ObjectDelete::ObjectDelete() : ServerPacket(ServerPacketID_ObjectDelete /* 36 */), X(), Y() {
+ObjectDelete::ObjectDelete() : ServerPacket(ServerPacketID_ObjectDelete /* 36 */) {
 }
 
 ObjectDelete::ObjectDelete(clsByteQueue* buffer) : ServerPacket(ServerPacketID_ObjectDelete /* 36 */) {
@@ -10734,7 +10734,7 @@ void ObjectDelete::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleObjectDelete(this);
 }
 
-BlockPosition::BlockPosition() : ServerPacket(ServerPacketID_BlockPosition /* 37 */), X(), Y(), Blocked() {
+BlockPosition::BlockPosition() : ServerPacket(ServerPacketID_BlockPosition /* 37 */) {
 }
 
 BlockPosition::BlockPosition(clsByteQueue* buffer) : ServerPacket(ServerPacketID_BlockPosition /* 37 */) {
@@ -10757,7 +10757,7 @@ void BlockPosition::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleBlockPosition(this);
 }
 
-PlayMidi::PlayMidi() : ServerPacket(ServerPacketID_PlayMidi /* 38 */), MidiID(), Loops() {
+PlayMidi::PlayMidi() : ServerPacket(ServerPacketID_PlayMidi /* 38 */) {
 }
 
 PlayMidi::PlayMidi(clsByteQueue* buffer) : ServerPacket(ServerPacketID_PlayMidi /* 38 */) {
@@ -10778,7 +10778,7 @@ void PlayMidi::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handlePlayMidi(this);
 }
 
-PlayWave::PlayWave() : ServerPacket(ServerPacketID_PlayWave /* 39 */), WaveID(), X(), Y() {
+PlayWave::PlayWave() : ServerPacket(ServerPacketID_PlayWave /* 39 */) {
 }
 
 PlayWave::PlayWave(clsByteQueue* buffer) : ServerPacket(ServerPacketID_PlayWave /* 39 */) {
@@ -10801,7 +10801,7 @@ void PlayWave::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handlePlayWave(this);
 }
 
-GuildList::GuildList() : ServerPacket(ServerPacketID_GuildList /* 40 */), Data() {
+GuildList::GuildList() : ServerPacket(ServerPacketID_GuildList /* 40 */) {
 }
 
 GuildList::GuildList(clsByteQueue* buffer) : ServerPacket(ServerPacketID_GuildList /* 40 */) {
@@ -10820,7 +10820,7 @@ void GuildList::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleGuildList(this);
 }
 
-AreaChanged::AreaChanged() : ServerPacket(ServerPacketID_AreaChanged /* 41 */), X(), Y() {
+AreaChanged::AreaChanged() : ServerPacket(ServerPacketID_AreaChanged /* 41 */) {
 }
 
 AreaChanged::AreaChanged(clsByteQueue* buffer) : ServerPacket(ServerPacketID_AreaChanged /* 41 */) {
@@ -10875,7 +10875,7 @@ void RainToggle::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleRainToggle(this);
 }
 
-CreateFX::CreateFX() : ServerPacket(ServerPacketID_CreateFX /* 44 */), CharIndex(), FX(), FXLoops() {
+CreateFX::CreateFX() : ServerPacket(ServerPacketID_CreateFX /* 44 */) {
 }
 
 CreateFX::CreateFX(clsByteQueue* buffer) : ServerPacket(ServerPacketID_CreateFX /* 44 */) {
@@ -10898,7 +10898,7 @@ void CreateFX::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleCreateFX(this);
 }
 
-UpdateUserStats::UpdateUserStats() : ServerPacket(ServerPacketID_UpdateUserStats /* 45 */), MaxHp(), MinHp(), MaxMan(), MinMan(), MaxSta(), MinSta(), Gld(), Elv(), Elu(), Exp() {
+UpdateUserStats::UpdateUserStats() : ServerPacket(ServerPacketID_UpdateUserStats /* 45 */) {
 }
 
 UpdateUserStats::UpdateUserStats(clsByteQueue* buffer) : ServerPacket(ServerPacketID_UpdateUserStats /* 45 */) {
@@ -10935,7 +10935,7 @@ void UpdateUserStats::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleUpdateUserStats(this);
 }
 
-WorkRequestTarget::WorkRequestTarget() : ServerPacket(ServerPacketID_WorkRequestTarget /* 46 */), Skill() {
+WorkRequestTarget::WorkRequestTarget() : ServerPacket(ServerPacketID_WorkRequestTarget /* 46 */) {
 }
 
 WorkRequestTarget::WorkRequestTarget(clsByteQueue* buffer) : ServerPacket(ServerPacketID_WorkRequestTarget /* 46 */) {
@@ -10954,7 +10954,7 @@ void WorkRequestTarget::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleWorkRequestTarget(this);
 }
 
-ChangeInventorySlot::ChangeInventorySlot() : ServerPacket(ServerPacketID_ChangeInventorySlot /* 47 */), Slot(), ObjIndex(), ObjName(), Amount(), Equiped(), GrhIndex(), ObjType(), MaxHit(), MinHit(), MaxDef(), MinDef(), ObjSalePrice() {
+ChangeInventorySlot::ChangeInventorySlot() : ServerPacket(ServerPacketID_ChangeInventorySlot /* 47 */) {
 }
 
 ChangeInventorySlot::ChangeInventorySlot(clsByteQueue* buffer) : ServerPacket(ServerPacketID_ChangeInventorySlot /* 47 */) {
@@ -10995,7 +10995,7 @@ void ChangeInventorySlot::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleChangeInventorySlot(this);
 }
 
-ChangeBankSlot::ChangeBankSlot() : ServerPacket(ServerPacketID_ChangeBankSlot /* 48 */), Slot(), ObjIndex(), ObjName(), GrhIndex(), ObjType(), MaxHit(), MinHit(), MaxDef(), MinDef(), ObjSalePrice() {
+ChangeBankSlot::ChangeBankSlot() : ServerPacket(ServerPacketID_ChangeBankSlot /* 48 */) {
 }
 
 ChangeBankSlot::ChangeBankSlot(clsByteQueue* buffer) : ServerPacket(ServerPacketID_ChangeBankSlot /* 48 */) {
@@ -11032,7 +11032,7 @@ void ChangeBankSlot::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleChangeBankSlot(this);
 }
 
-ChangeSpellSlot::ChangeSpellSlot() : ServerPacket(ServerPacketID_ChangeSpellSlot /* 49 */), Slot(), SpellID(), Name() {
+ChangeSpellSlot::ChangeSpellSlot() : ServerPacket(ServerPacketID_ChangeSpellSlot /* 49 */) {
 }
 
 ChangeSpellSlot::ChangeSpellSlot(clsByteQueue* buffer) : ServerPacket(ServerPacketID_ChangeSpellSlot /* 49 */) {
@@ -11055,7 +11055,7 @@ void ChangeSpellSlot::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleChangeSpellSlot(this);
 }
 
-Atributes::Atributes() : ServerPacket(ServerPacketID_Atributes /* 50 */), Fuerza(), Agilidad(), Inteligencia(), Carisma(), Constitucion() {
+Atributes::Atributes() : ServerPacket(ServerPacketID_Atributes /* 50 */) {
 }
 
 Atributes::Atributes(clsByteQueue* buffer) : ServerPacket(ServerPacketID_Atributes /* 50 */) {
@@ -11235,7 +11235,7 @@ void RestOK::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleRestOK(this);
 }
 
-ErrorMsg::ErrorMsg() : ServerPacket(ServerPacketID_ErrorMsg /* 55 */), Message() {
+ErrorMsg::ErrorMsg() : ServerPacket(ServerPacketID_ErrorMsg /* 55 */) {
 }
 
 ErrorMsg::ErrorMsg(clsByteQueue* buffer) : ServerPacket(ServerPacketID_ErrorMsg /* 55 */) {
@@ -11288,7 +11288,7 @@ void Dumb::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleDumb(this);
 }
 
-ShowSignal::ShowSignal() : ServerPacket(ServerPacketID_ShowSignal /* 58 */), Texto(), Grh() {
+ShowSignal::ShowSignal() : ServerPacket(ServerPacketID_ShowSignal /* 58 */) {
 }
 
 ShowSignal::ShowSignal(clsByteQueue* buffer) : ServerPacket(ServerPacketID_ShowSignal /* 58 */) {
@@ -11309,7 +11309,7 @@ void ShowSignal::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleShowSignal(this);
 }
 
-ChangeNPCInventorySlot::ChangeNPCInventorySlot() : ServerPacket(ServerPacketID_ChangeNPCInventorySlot /* 59 */), Slot(), ObjName(), Amount(), Price(), GrhIndex(), ObjIndex(), ObjType(), MaxHit(), MinHit(), MaxDef(), MinDef() {
+ChangeNPCInventorySlot::ChangeNPCInventorySlot() : ServerPacket(ServerPacketID_ChangeNPCInventorySlot /* 59 */) {
 }
 
 ChangeNPCInventorySlot::ChangeNPCInventorySlot(clsByteQueue* buffer) : ServerPacket(ServerPacketID_ChangeNPCInventorySlot /* 59 */) {
@@ -11348,7 +11348,7 @@ void ChangeNPCInventorySlot::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleChangeNPCInventorySlot(this);
 }
 
-UpdateHungerAndThirst::UpdateHungerAndThirst() : ServerPacket(ServerPacketID_UpdateHungerAndThirst /* 60 */), MaxAgu(), MinAgu(), MaxHam(), MinHam() {
+UpdateHungerAndThirst::UpdateHungerAndThirst() : ServerPacket(ServerPacketID_UpdateHungerAndThirst /* 60 */) {
 }
 
 UpdateHungerAndThirst::UpdateHungerAndThirst(clsByteQueue* buffer) : ServerPacket(ServerPacketID_UpdateHungerAndThirst /* 60 */) {
@@ -11373,7 +11373,7 @@ void UpdateHungerAndThirst::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleUpdateHungerAndThirst(this);
 }
 
-Fame::Fame() : ServerPacket(ServerPacketID_Fame /* 61 */), Asesino(), Bandido(), Burgues(), Ladron(), Noble(), Plebe(), Promedio() {
+Fame::Fame() : ServerPacket(ServerPacketID_Fame /* 61 */) {
 }
 
 Fame::Fame(clsByteQueue* buffer) : ServerPacket(ServerPacketID_Fame /* 61 */) {
@@ -11404,7 +11404,7 @@ void Fame::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleFame(this);
 }
 
-MiniStats::MiniStats() : ServerPacket(ServerPacketID_MiniStats /* 62 */), CiudadanosMatados(), CriminalesMatados(), UsuariosMatados(), NpcsMuertos(), Clase(), Pena() {
+MiniStats::MiniStats() : ServerPacket(ServerPacketID_MiniStats /* 62 */) {
 }
 
 MiniStats::MiniStats(clsByteQueue* buffer) : ServerPacket(ServerPacketID_MiniStats /* 62 */) {
@@ -11433,7 +11433,7 @@ void MiniStats::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleMiniStats(this);
 }
 
-LevelUp::LevelUp() : ServerPacket(ServerPacketID_LevelUp /* 63 */), SkillPoints() {
+LevelUp::LevelUp() : ServerPacket(ServerPacketID_LevelUp /* 63 */) {
 }
 
 LevelUp::LevelUp(clsByteQueue* buffer) : ServerPacket(ServerPacketID_LevelUp /* 63 */) {
@@ -11452,7 +11452,7 @@ void LevelUp::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleLevelUp(this);
 }
 
-AddForumMsg::AddForumMsg() : ServerPacket(ServerPacketID_AddForumMsg /* 64 */), ForumType(), Title(), Author(), Message() {
+AddForumMsg::AddForumMsg() : ServerPacket(ServerPacketID_AddForumMsg /* 64 */) {
 }
 
 AddForumMsg::AddForumMsg(clsByteQueue* buffer) : ServerPacket(ServerPacketID_AddForumMsg /* 64 */) {
@@ -11477,7 +11477,7 @@ void AddForumMsg::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleAddForumMsg(this);
 }
 
-ShowForumForm::ShowForumForm() : ServerPacket(ServerPacketID_ShowForumForm /* 65 */), Visibilidad(), CanMakeSticky() {
+ShowForumForm::ShowForumForm() : ServerPacket(ServerPacketID_ShowForumForm /* 65 */) {
 }
 
 ShowForumForm::ShowForumForm(clsByteQueue* buffer) : ServerPacket(ServerPacketID_ShowForumForm /* 65 */) {
@@ -11515,7 +11515,7 @@ void SetInvisible::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleSetInvisible(this);
 }
 
-DiceRoll::DiceRoll() : ServerPacket(ServerPacketID_DiceRoll /* 67 */), Fuerza(), Agilidad(), Inteligencia(), Carisma(), Constitucion() {
+DiceRoll::DiceRoll() : ServerPacket(ServerPacketID_DiceRoll /* 67 */) {
 }
 
 DiceRoll::DiceRoll(clsByteQueue* buffer) : ServerPacket(ServerPacketID_DiceRoll /* 67 */) {
@@ -11593,7 +11593,7 @@ void DumbNoMore::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleDumbNoMore(this);
 }
 
-SendSkills::SendSkills() : ServerPacket(ServerPacketID_SendSkills /* 71 */), Skills() {
+SendSkills::SendSkills() : ServerPacket(ServerPacketID_SendSkills /* 71 */) {
 }
 
 SendSkills::SendSkills(clsByteQueue* buffer) : ServerPacket(ServerPacketID_SendSkills /* 71 */) {
@@ -11612,7 +11612,7 @@ void SendSkills::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleSendSkills(this);
 }
 
-TrainerCreatureList::TrainerCreatureList() : ServerPacket(ServerPacketID_TrainerCreatureList /* 72 */), Data() {
+TrainerCreatureList::TrainerCreatureList() : ServerPacket(ServerPacketID_TrainerCreatureList /* 72 */) {
 }
 
 TrainerCreatureList::TrainerCreatureList(clsByteQueue* buffer) : ServerPacket(ServerPacketID_TrainerCreatureList /* 72 */) {
@@ -11631,7 +11631,7 @@ void TrainerCreatureList::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleTrainerCreatureList(this);
 }
 
-GuildNews::GuildNews() : ServerPacket(ServerPacketID_GuildNews /* 73 */), News(), EnemiesList(), AlliesList() {
+GuildNews::GuildNews() : ServerPacket(ServerPacketID_GuildNews /* 73 */) {
 }
 
 GuildNews::GuildNews(clsByteQueue* buffer) : ServerPacket(ServerPacketID_GuildNews /* 73 */) {
@@ -11654,7 +11654,7 @@ void GuildNews::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleGuildNews(this);
 }
 
-OfferDetails::OfferDetails() : ServerPacket(ServerPacketID_OfferDetails /* 74 */), Details() {
+OfferDetails::OfferDetails() : ServerPacket(ServerPacketID_OfferDetails /* 74 */) {
 }
 
 OfferDetails::OfferDetails(clsByteQueue* buffer) : ServerPacket(ServerPacketID_OfferDetails /* 74 */) {
@@ -11673,7 +11673,7 @@ void OfferDetails::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleOfferDetails(this);
 }
 
-AlianceProposalsList::AlianceProposalsList() : ServerPacket(ServerPacketID_AlianceProposalsList /* 75 */), Data() {
+AlianceProposalsList::AlianceProposalsList() : ServerPacket(ServerPacketID_AlianceProposalsList /* 75 */) {
 }
 
 AlianceProposalsList::AlianceProposalsList(clsByteQueue* buffer) : ServerPacket(ServerPacketID_AlianceProposalsList /* 75 */) {
@@ -11692,7 +11692,7 @@ void AlianceProposalsList::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleAlianceProposalsList(this);
 }
 
-PeaceProposalsList::PeaceProposalsList() : ServerPacket(ServerPacketID_PeaceProposalsList /* 76 */), Data() {
+PeaceProposalsList::PeaceProposalsList() : ServerPacket(ServerPacketID_PeaceProposalsList /* 76 */) {
 }
 
 PeaceProposalsList::PeaceProposalsList(clsByteQueue* buffer) : ServerPacket(ServerPacketID_PeaceProposalsList /* 76 */) {
@@ -11711,7 +11711,7 @@ void PeaceProposalsList::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handlePeaceProposalsList(this);
 }
 
-CharacterInfo::CharacterInfo() : ServerPacket(ServerPacketID_CharacterInfo /* 77 */), CharName(), Race(), Class(), Gender(), Level(), Gold(), Bank(), Reputation(), PreviousPetitions(), CurrentGuild(), PreviousGuilds(), RoyalArmy(), ChaosLegion(), CiudadanosMatados(), CriminalesMatados() {
+CharacterInfo::CharacterInfo() : ServerPacket(ServerPacketID_CharacterInfo /* 77 */) {
 }
 
 CharacterInfo::CharacterInfo(clsByteQueue* buffer) : ServerPacket(ServerPacketID_CharacterInfo /* 77 */) {
@@ -11758,7 +11758,7 @@ void CharacterInfo::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleCharacterInfo(this);
 }
 
-GuildLeaderInfo::GuildLeaderInfo() : ServerPacket(ServerPacketID_GuildLeaderInfo /* 78 */), GuildList(), MemberList(), GuildNews(), JoinRequests() {
+GuildLeaderInfo::GuildLeaderInfo() : ServerPacket(ServerPacketID_GuildLeaderInfo /* 78 */) {
 }
 
 GuildLeaderInfo::GuildLeaderInfo(clsByteQueue* buffer) : ServerPacket(ServerPacketID_GuildLeaderInfo /* 78 */) {
@@ -11783,7 +11783,7 @@ void GuildLeaderInfo::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleGuildLeaderInfo(this);
 }
 
-GuildMemberInfo::GuildMemberInfo() : ServerPacket(ServerPacketID_GuildMemberInfo /* 79 */), GuildList(), MemberList() {
+GuildMemberInfo::GuildMemberInfo() : ServerPacket(ServerPacketID_GuildMemberInfo /* 79 */) {
 }
 
 GuildMemberInfo::GuildMemberInfo(clsByteQueue* buffer) : ServerPacket(ServerPacketID_GuildMemberInfo /* 79 */) {
@@ -11804,7 +11804,7 @@ void GuildMemberInfo::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleGuildMemberInfo(this);
 }
 
-GuildDetails::GuildDetails() : ServerPacket(ServerPacketID_GuildDetails /* 80 */), GuildName(), Founder(), FoundationDate(), Leader(), URL(), MemberCount(), ElectionsOpen(), Aligment(), EnemiesCount(), AlliesCount(), AntifactionPoints(), Codex(), GuildDesc() {
+GuildDetails::GuildDetails() : ServerPacket(ServerPacketID_GuildDetails /* 80 */) {
 }
 
 GuildDetails::GuildDetails(clsByteQueue* buffer) : ServerPacket(ServerPacketID_GuildDetails /* 80 */) {
@@ -11881,7 +11881,7 @@ void ParalizeOK::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleParalizeOK(this);
 }
 
-ShowUserRequest::ShowUserRequest() : ServerPacket(ServerPacketID_ShowUserRequest /* 83 */), Details() {
+ShowUserRequest::ShowUserRequest() : ServerPacket(ServerPacketID_ShowUserRequest /* 83 */) {
 }
 
 ShowUserRequest::ShowUserRequest(clsByteQueue* buffer) : ServerPacket(ServerPacketID_ShowUserRequest /* 83 */) {
@@ -11934,7 +11934,7 @@ void BankOK::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleBankOK(this);
 }
 
-ChangeUserTradeSlot::ChangeUserTradeSlot() : ServerPacket(ServerPacketID_ChangeUserTradeSlot /* 86 */), OfferSlot(), ObjIndex(), Amount(), GrhIndex(), ObjType(), MaxHit(), MinHit(), MaxDef(), MinDef(), Price(), ObjName() {
+ChangeUserTradeSlot::ChangeUserTradeSlot() : ServerPacket(ServerPacketID_ChangeUserTradeSlot /* 86 */) {
 }
 
 ChangeUserTradeSlot::ChangeUserTradeSlot(clsByteQueue* buffer) : ServerPacket(ServerPacketID_ChangeUserTradeSlot /* 86 */) {
@@ -11973,7 +11973,7 @@ void ChangeUserTradeSlot::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleChangeUserTradeSlot(this);
 }
 
-SendNight::SendNight() : ServerPacket(ServerPacketID_SendNight /* 87 */), Night() {
+SendNight::SendNight() : ServerPacket(ServerPacketID_SendNight /* 87 */) {
 }
 
 SendNight::SendNight(clsByteQueue* buffer) : ServerPacket(ServerPacketID_SendNight /* 87 */) {
@@ -12009,7 +12009,7 @@ void Pong::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handlePong(this);
 }
 
-UpdateTagAndStatus::UpdateTagAndStatus() : ServerPacket(ServerPacketID_UpdateTagAndStatus /* 89 */), CharIndex(), NickColor(), Tag() {
+UpdateTagAndStatus::UpdateTagAndStatus() : ServerPacket(ServerPacketID_UpdateTagAndStatus /* 89 */) {
 }
 
 UpdateTagAndStatus::UpdateTagAndStatus(clsByteQueue* buffer) : ServerPacket(ServerPacketID_UpdateTagAndStatus /* 89 */) {
@@ -12032,7 +12032,7 @@ void UpdateTagAndStatus::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleUpdateTagAndStatus(this);
 }
 
-SpawnList::SpawnList() : ServerPacket(ServerPacketID_SpawnList /* 90 */), Data() {
+SpawnList::SpawnList() : ServerPacket(ServerPacketID_SpawnList /* 90 */) {
 }
 
 SpawnList::SpawnList(clsByteQueue* buffer) : ServerPacket(ServerPacketID_SpawnList /* 90 */) {
@@ -12051,7 +12051,7 @@ void SpawnList::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleSpawnList(this);
 }
 
-ShowSOSForm::ShowSOSForm() : ServerPacket(ServerPacketID_ShowSOSForm /* 91 */), Data() {
+ShowSOSForm::ShowSOSForm() : ServerPacket(ServerPacketID_ShowSOSForm /* 91 */) {
 }
 
 ShowSOSForm::ShowSOSForm(clsByteQueue* buffer) : ServerPacket(ServerPacketID_ShowSOSForm /* 91 */) {
@@ -12070,7 +12070,7 @@ void ShowSOSForm::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleShowSOSForm(this);
 }
 
-ShowMOTDEditionForm::ShowMOTDEditionForm() : ServerPacket(ServerPacketID_ShowMOTDEditionForm /* 92 */), Data() {
+ShowMOTDEditionForm::ShowMOTDEditionForm() : ServerPacket(ServerPacketID_ShowMOTDEditionForm /* 92 */) {
 }
 
 ShowMOTDEditionForm::ShowMOTDEditionForm(clsByteQueue* buffer) : ServerPacket(ServerPacketID_ShowMOTDEditionForm /* 92 */) {
@@ -12106,7 +12106,7 @@ void ShowGMPanelForm::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleShowGMPanelForm(this);
 }
 
-UserNameList::UserNameList() : ServerPacket(ServerPacketID_UserNameList /* 94 */), Data() {
+UserNameList::UserNameList() : ServerPacket(ServerPacketID_UserNameList /* 94 */) {
 }
 
 UserNameList::UserNameList(clsByteQueue* buffer) : ServerPacket(ServerPacketID_UserNameList /* 94 */) {
@@ -12125,7 +12125,7 @@ void UserNameList::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleUserNameList(this);
 }
 
-ShowDenounces::ShowDenounces() : ServerPacket(ServerPacketID_ShowDenounces /* 95 */), Data() {
+ShowDenounces::ShowDenounces() : ServerPacket(ServerPacketID_ShowDenounces /* 95 */) {
 }
 
 ShowDenounces::ShowDenounces(clsByteQueue* buffer) : ServerPacket(ServerPacketID_ShowDenounces /* 95 */) {
@@ -12178,7 +12178,7 @@ void RecordList::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleRecordList(this);
 }
 
-RecordDetails::RecordDetails() : ServerPacket(ServerPacketID_RecordDetails /* 97 */), Creador(), Motivo(), Online(), IP(), OnlineTime(), Obs() {
+RecordDetails::RecordDetails() : ServerPacket(ServerPacketID_RecordDetails /* 97 */) {
 }
 
 RecordDetails::RecordDetails(clsByteQueue* buffer) : ServerPacket(ServerPacketID_RecordDetails /* 97 */) {
@@ -12224,7 +12224,7 @@ void ShowGuildAlign::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleShowGuildAlign(this);
 }
 
-ShowPartyForm::ShowPartyForm() : ServerPacket(ServerPacketID_ShowPartyForm /* 99 */), EsLider(), Data(), Exp() {
+ShowPartyForm::ShowPartyForm() : ServerPacket(ServerPacketID_ShowPartyForm /* 99 */) {
 }
 
 ShowPartyForm::ShowPartyForm(clsByteQueue* buffer) : ServerPacket(ServerPacketID_ShowPartyForm /* 99 */) {
@@ -12247,7 +12247,7 @@ void ShowPartyForm::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleShowPartyForm(this);
 }
 
-UpdateStrenghtAndDexterity::UpdateStrenghtAndDexterity() : ServerPacket(ServerPacketID_UpdateStrenghtAndDexterity /* 100 */), Fuerza(), Agilidad() {
+UpdateStrenghtAndDexterity::UpdateStrenghtAndDexterity() : ServerPacket(ServerPacketID_UpdateStrenghtAndDexterity /* 100 */) {
 }
 
 UpdateStrenghtAndDexterity::UpdateStrenghtAndDexterity(clsByteQueue* buffer) : ServerPacket(ServerPacketID_UpdateStrenghtAndDexterity /* 100 */) {
@@ -12268,7 +12268,7 @@ void UpdateStrenghtAndDexterity::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleUpdateStrenghtAndDexterity(this);
 }
 
-UpdateStrenght::UpdateStrenght() : ServerPacket(ServerPacketID_UpdateStrenght /* 101 */), Fuerza() {
+UpdateStrenght::UpdateStrenght() : ServerPacket(ServerPacketID_UpdateStrenght /* 101 */) {
 }
 
 UpdateStrenght::UpdateStrenght(clsByteQueue* buffer) : ServerPacket(ServerPacketID_UpdateStrenght /* 101 */) {
@@ -12287,7 +12287,7 @@ void UpdateStrenght::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleUpdateStrenght(this);
 }
 
-UpdateDexterity::UpdateDexterity() : ServerPacket(ServerPacketID_UpdateDexterity /* 102 */), Agilidad() {
+UpdateDexterity::UpdateDexterity() : ServerPacket(ServerPacketID_UpdateDexterity /* 102 */) {
 }
 
 UpdateDexterity::UpdateDexterity(clsByteQueue* buffer) : ServerPacket(ServerPacketID_UpdateDexterity /* 102 */) {
@@ -12306,7 +12306,7 @@ void UpdateDexterity::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleUpdateDexterity(this);
 }
 
-AddSlots::AddSlots() : ServerPacket(ServerPacketID_AddSlots /* 103 */), Mochila() {
+AddSlots::AddSlots() : ServerPacket(ServerPacketID_AddSlots /* 103 */) {
 }
 
 AddSlots::AddSlots(clsByteQueue* buffer) : ServerPacket(ServerPacketID_AddSlots /* 103 */) {
@@ -12359,7 +12359,7 @@ void StopWorking::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleStopWorking(this);
 }
 
-CancelOfferItem::CancelOfferItem() : ServerPacket(ServerPacketID_CancelOfferItem /* 106 */), Slot() {
+CancelOfferItem::CancelOfferItem() : ServerPacket(ServerPacketID_CancelOfferItem /* 106 */) {
 }
 
 CancelOfferItem::CancelOfferItem(clsByteQueue* buffer) : ServerPacket(ServerPacketID_CancelOfferItem /* 106 */) {
