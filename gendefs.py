@@ -172,7 +172,6 @@ void {name}::serialize(clsByteQueue* buffer) {{
         for (i=0; i<Count; ++i) {{
             Item &e = Items[i];
 {serialize_fields}
-            Items.push_back(e);
         }}
     }}
 }}

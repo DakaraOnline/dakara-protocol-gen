@@ -892,6 +892,7 @@ SERVER_PACKETS.append(Packet('ChangeBankSlot', [
     ('Slot', TYPE_I8),
     ('ObjIndex', TYPE_I16),
     ('ObjName', TYPE_UNICODE_STRING),
+    ('Amount', TYPE_I16),
     ('GrhIndex', TYPE_I16),
     ('ObjType', TYPE_I8),
     ('MaxHit', TYPE_I16),
