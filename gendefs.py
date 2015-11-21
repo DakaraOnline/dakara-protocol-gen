@@ -138,6 +138,12 @@ public:
     }};
 
     std::vector<Item> Items;
+
+    void addItem({header_fields_signature}) {{
+        Item e;
+{items_assign_e}
+        Items.push_back(e);
+    }}
 }};
 """
 
@@ -212,6 +218,19 @@ TYPE_TO_STR = {
     TYPE_SINGLE: 'float',
     TYPE_DOUBLE: 'double',
     TYPE_BOOL: 'bool',
+}
+
+TYPE_TO_SIGNATURE_STR = {
+    TYPE_UNICODE_STRING: 'const std::string&',
+    TYPE_UNICODE_STRING_FIXED: 'const std::string&',
+    TYPE_BINARY_STRING: 'const std::string&',
+    TYPE_BINARY_STRING_FIXED: 'const std::string&',
+    TYPE_I8: 'const std::uint8_t',
+    TYPE_I16: 'const std::int16_t',
+    TYPE_I32: 'const std::int32_t',
+    TYPE_SINGLE: 'const float',
+    TYPE_DOUBLE: 'const double',
+    TYPE_BOOL: 'const bool',
 }
 
 TYPE_TO_READER_NAME = {

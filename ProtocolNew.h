@@ -4575,6 +4575,18 @@ public:
     };
 
     std::vector<Item> Items;
+
+    void addItem(const std::string& Name, const std::int16_t GrhIndex, const std::int16_t LingH, const std::int16_t LingP, const std::int16_t LingO, const std::int16_t ArmasHerreroIndex, const std::int16_t ObjUpgrade) {
+        Item e;
+        e.Name = Name;
+        e.GrhIndex = GrhIndex;
+        e.LingH = LingH;
+        e.LingP = LingP;
+        e.LingO = LingO;
+        e.ArmasHerreroIndex = ArmasHerreroIndex;
+        e.ObjUpgrade = ObjUpgrade;
+        Items.push_back(e);
+    }
 };
 
 class BlacksmithArmors : public ServerPacket {
@@ -4596,6 +4608,18 @@ public:
     };
 
     std::vector<Item> Items;
+
+    void addItem(const std::string& Name, const std::int16_t GrhIndex, const std::int16_t LingH, const std::int16_t LingP, const std::int16_t LingO, const std::int16_t ArmasHerreroIndex, const std::int16_t ObjUpgrade) {
+        Item e;
+        e.Name = Name;
+        e.GrhIndex = GrhIndex;
+        e.LingH = LingH;
+        e.LingP = LingP;
+        e.LingO = LingO;
+        e.ArmasHerreroIndex = ArmasHerreroIndex;
+        e.ObjUpgrade = ObjUpgrade;
+        Items.push_back(e);
+    }
 };
 
 class CarpenterObjects : public ServerPacket {
@@ -4616,6 +4640,17 @@ public:
     };
 
     std::vector<Item> Items;
+
+    void addItem(const std::string& Name, const std::int16_t GrhIndex, const std::int16_t Madera, const std::int16_t MaderaElfica, const std::int16_t ObjCarpinteroIndex, const std::int16_t ObjUpgrade) {
+        Item e;
+        e.Name = Name;
+        e.GrhIndex = GrhIndex;
+        e.Madera = Madera;
+        e.MaderaElfica = MaderaElfica;
+        e.ObjCarpinteroIndex = ObjCarpinteroIndex;
+        e.ObjUpgrade = ObjUpgrade;
+        Items.push_back(e);
+    }
 };
 
 class RestOK : public ServerPacket {
@@ -5170,6 +5205,12 @@ public:
     };
 
     std::vector<Item> Items;
+
+    void addItem(const std::string& Usuario) {
+        Item e;
+        e.Usuario = Usuario;
+        Items.push_back(e);
+    }
 };
 
 class RecordDetails : public ServerPacket {
