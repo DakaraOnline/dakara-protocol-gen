@@ -998,7 +998,10 @@ SERVER_PACKETS.append(Packet('ShowForumForm', [
     ('Visibilidad', TYPE_I8),
     ('CanMakeSticky', TYPE_I8),
     ]))
-SERVER_PACKETS.append(Packet('SetInvisible', []))
+SERVER_PACKETS.append(Packet('SetInvisible', [
+    ('charIndex', TYPE_I16),
+    ('invisible', TYPE_BOOL),
+    ]))
 SERVER_PACKETS.append(Packet('DiceRoll', [
     ('Fuerza', TYPE_I8),
     ('Agilidad', TYPE_I8),

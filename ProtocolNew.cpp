@@ -11502,11 +11502,15 @@ SetInvisible::SetInvisible() : ServerPacket(ServerPacketID_SetInvisible /* 66 */
 
 SetInvisible::SetInvisible(clsByteQueue* buffer) : ServerPacket(ServerPacketID_SetInvisible /* 66 */) {
     buffer->ReadByte(); /* PacketID */
+    charIndex = buffer->ReadInteger();
+    invisible = buffer->ReadBoolean();
 
 }
 
 void SetInvisible::serialize(clsByteQueue* buffer) {
     buffer->WriteByte(ServerPacketID_SetInvisible); /* PacketID: 66 */
+    buffer->WriteInteger(charIndex);
+    buffer->WriteBoolean(invisible);
 
 }
 

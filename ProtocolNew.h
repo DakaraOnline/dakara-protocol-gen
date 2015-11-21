@@ -4822,7 +4822,8 @@ public:
     virtual void serialize(clsByteQueue* buffer);
     virtual void dispatch(PacketHandler* d);
 
-
+    std::int16_t charIndex; 
+    bool invisible; 
 };
 
 class DiceRoll : public ServerPacket {
