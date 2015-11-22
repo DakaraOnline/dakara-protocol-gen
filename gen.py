@@ -24,11 +24,8 @@ namespace {namespace} {{
     for i, x in enumerate(P):
         if x:
             fh.write("    {base_name}ID_{name} = {packet_id}".format(base_name=base_name, name=x.name, packet_id=i))
-            if i == len(P) - 1:
-                fh.write("\n")
-            else:
-                fh.write(",\n")
-    fh.write("""};\n""")
+            fh.write(",\n")
+    fh.write("""    {base_name}ID_PACKET_COUNT = {packet_id}\n}};\n""".format(base_name=base_name, packet_id=len(P)))
 
     # Base packet class
     fh.write("""
@@ -126,8 +123,8 @@ void {base_name}DecodeAndDispatch(clsByteQueue* buffer, PacketHandler* handler) 
             if arg_is_array:
                 array_size=y[2]
                 min_byte_count += TYPE_SIZE[arg_type] * array_size
-                header_fields.append("    {arg_type_str} {arg_name}[{array_size}]; ".format(arg_type_str=arg_type_str, arg_name=arg_name, array_size=array_size))
-                header_fields_signature.append("{arg_type_str}* {arg_name} ".format(arg_type_str=arg_type_sig_str, arg_name=arg_name, array_size=array_size))
+                header_fields.append("    std::vector<{arg_type_str}> {arg_name}; ".format(arg_type_str=arg_type_str, arg_name=arg_name, array_size=array_size))
+                header_fields_signature.append("std::vector<{arg_type_str}> {arg_name} ".format(arg_type_str=arg_type_sig_str, arg_name=arg_name, array_size=array_size))
                 ctor_fields_bytequeue += x.get_ctor_fields_bytequeue_fmt(arg_is_array).format(arg_name=arg_name, type_reader_name=type_reader_name, array_size=array_size)
                 serialize_fields += x.get_serialize_fields_fmt(arg_is_array).format(arg_name=arg_name, type_writer_name=type_writer_name, array_size=array_size)
             else:
@@ -203,6 +200,9 @@ def write_packets():
     fh.write("""
 /* Automatically generated file */
 
+#ifndef DAKARAPROTOCOLNEW_H
+#define DAKARAPROTOCOLNEW_H
+
 #include <stdint.h>
 #include <string>
 #include <vector>
@@ -248,7 +248,7 @@ public:
 
     int get_id() const { return id_; }
 
-    virtual void serialize(clsByteQueue* buffer) = 0;
+    virtual void serialize(clsByteQueue* buffer) const = 0;
     virtual void dispatch(PacketHandler* d) = 0;
 
 protected:
@@ -276,6 +276,9 @@ namespace protocol {
     fh.write("""
 }
 }
+
+#endif
+
 """)
 
     fc.write("""

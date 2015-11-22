@@ -12,11 +12,17 @@ public:
     {name}();
     {name}(clsByteQueue* buffer);
 
-    virtual void serialize(clsByteQueue* buffer);
+    virtual void serialize(clsByteQueue* buffer) const;
     virtual void dispatch(PacketHandler* d);
 
 {header_fields}
 }};
+
+inline {name} Build{name}({header_fields_signature}) {{
+    {name} e;
+{items_assign_e}
+    return e;
+}}
 """
 
     def get_ctor1_fmt(self):
@@ -35,7 +41,7 @@ public:
 
     def get_serialize_fmt(self):
         return """
-void {name}::serialize(clsByteQueue* buffer) {{
+void {name}::serialize(clsByteQueue* buffer) const {{
     buffer->WriteByte({base_name}ID_{name}); /* PacketID: {packet_id} */
 {serialize_fields}
 }}
@@ -50,7 +56,7 @@ void {name}::dispatch(PacketHandler* d) {{
 
     def get_ctor_fields_bytequeue_fmt(self, is_array):
         if is_array:
-            return "    {{ int i; for (i=0; i<{array_size}; ++i) {arg_name}[i] = buffer->{type_reader_name}(); }}\n"
+            return "    {{ int i; {arg_name}.resize({array_size}); for (i=0; i<{array_size}; ++i) {arg_name}[i] = buffer->{type_reader_name}(); }}\n"
         else:
             return "    {arg_name} = buffer->{type_reader_name}();\n"
 
@@ -72,7 +78,7 @@ public:
     {name}(clsByteQueue* buffer);
     virtual ~{name}();
 
-    virtual void serialize(clsByteQueue* buffer);
+    virtual void serialize(clsByteQueue* buffer) const;
     virtual void dispatch(PacketHandler* d);
 
     std::unique_ptr<dakara::protocol::clientgm::ClientGMPacket> composite;
@@ -99,7 +105,7 @@ public:
 
     def get_serialize_fmt(self):
         return """
-void {name}::serialize(clsByteQueue* buffer) {{
+void {name}::serialize(clsByteQueue* buffer) const {{
     composite->serialize(buffer);
 /* {serialize_fields} */
 }}
@@ -111,7 +117,7 @@ class PacketGMCommand(Packet):
 
     def get_serialize_fmt(self):
         return """
-void {name}::serialize(clsByteQueue* buffer) {{
+void {name}::serialize(clsByteQueue* buffer) const {{
     buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte({base_name}ID_{name}); /* PacketID: {packet_id} */
 {serialize_fields}
@@ -130,7 +136,7 @@ public:
     {name}();
     {name}(clsByteQueue* buffer);
 
-    virtual void serialize(clsByteQueue* buffer);
+    virtual void serialize(clsByteQueue* buffer) const;
     virtual void dispatch(PacketHandler* d);
 
     struct Item {{
@@ -170,13 +176,13 @@ public:
 
     def get_serialize_fmt(self):
         return """
-void {name}::serialize(clsByteQueue* buffer) {{
+void {name}::serialize(clsByteQueue* buffer) const {{
     buffer->WriteByte({base_name}ID_{name}); /* PacketID: {packet_id} */
     std::int32_t Count = static_cast<std::int32_t>(Items.size());
     buffer->__COUNTWRITER__(Count);
     {{ std::int32_t i; 
         for (i=0; i<Count; ++i) {{
-            Item &e = Items[i];
+            const Item &e = Items[i];
 {serialize_fields}
         }}
     }}
@@ -185,7 +191,7 @@ void {name}::serialize(clsByteQueue* buffer) {{
 
     def get_ctor_fields_bytequeue_fmt(self, is_array):
         if is_array:
-            return "            {{ int i; for (i=0; i<{array_size}; ++i) e.{arg_name}[i] = buffer->{type_reader_name}(); }}\n"
+            return "            {{ int i; e.{arg_name}.resize({array_size}); for (i=0; i<{array_size}; ++i) e.{arg_name}[i] = buffer->{type_reader_name}(); }}\n"
         else:
             return "            e.{arg_name} = buffer->{type_reader_name}();\n"
 
@@ -225,12 +231,12 @@ TYPE_TO_SIGNATURE_STR = {
     TYPE_UNICODE_STRING_FIXED: 'const std::string&',
     TYPE_BINARY_STRING: 'const std::string&',
     TYPE_BINARY_STRING_FIXED: 'const std::string&',
-    TYPE_I8: 'const std::uint8_t',
-    TYPE_I16: 'const std::int16_t',
-    TYPE_I32: 'const std::int32_t',
-    TYPE_SINGLE: 'const float',
-    TYPE_DOUBLE: 'const double',
-    TYPE_BOOL: 'const bool',
+    TYPE_I8: 'std::uint8_t',
+    TYPE_I16: 'std::int16_t',
+    TYPE_I32: 'std::int32_t',
+    TYPE_SINGLE: 'float',
+    TYPE_DOUBLE: 'double',
+    TYPE_BOOL: 'bool',
 }
 
 TYPE_TO_READER_NAME = {

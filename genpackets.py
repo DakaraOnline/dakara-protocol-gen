@@ -41,7 +41,9 @@ CLIENT_PACKETS.append(Packet('Whisper', [
     ('TargetName', TYPE_UNICODE_STRING),
     ('Chat', TYPE_UNICODE_STRING),
     ]))
-CLIENT_PACKETS.append(Packet('Walk', []))
+CLIENT_PACKETS.append(Packet('Walk', [
+    ('Heading', TYPE_I8),
+    ]))
 CLIENT_PACKETS.append(Packet('RequestPositionUpdate', []))
 CLIENT_PACKETS.append(Packet('Attack', []))
 CLIENT_PACKETS.append(Packet('PickUp', []))
@@ -319,10 +321,9 @@ CLIENT_PACKETS.append(Packet('ShowGuildNews', []))
 CLIENT_PACKETS.append(Packet('ShareNpc', []))
 CLIENT_PACKETS.append(Packet('StopSharingNpc', []))
 CLIENT_PACKETS.append(Packet('Consultation', []))
-CLIENT_PACKETS.append(Packet('moveItem', [
+CLIENT_PACKETS.append(Packet('MoveItem', [
     ('OldSlot', TYPE_I8),
     ('NewSlot', TYPE_I8),
-    ('Unknown', TYPE_I8),
     ]))
 
 # GM Packets
@@ -442,7 +443,10 @@ CLIENT_GM_PACKETS.append(PacketGMCommand('NickToIP', [
     ('UserName', TYPE_UNICODE_STRING),
     ]))
 CLIENT_GM_PACKETS.append(PacketGMCommand('IPToNick', [
-    ('IP', TYPE_UNICODE_STRING | TYPE_ARRAY, 4),
+    ('A', TYPE_I8),
+    ('B', TYPE_I8),
+    ('C', TYPE_I8),
+    ('D', TYPE_I8),
     ]))
 CLIENT_GM_PACKETS.append(PacketGMCommand('GuildOnlineMembers', [
     ('GuildName', TYPE_UNICODE_STRING),
@@ -459,8 +463,8 @@ CLIENT_GM_PACKETS.append(PacketGMCommand('SetCharDescription', [
     ('Description', TYPE_UNICODE_STRING),
     ]))
 CLIENT_GM_PACKETS.append(PacketGMCommand('ForceMIDIToMap', [
-    ('MidiID', TYPE_UNICODE_STRING),
-    ('Map', TYPE_UNICODE_STRING),
+    ('MidiID', TYPE_I8),
+    ('Map', TYPE_I16),
     ]))
 CLIENT_GM_PACKETS.append(PacketGMCommand('ForceWAVEToMap', [
     ('Wave', TYPE_I8),
@@ -502,7 +506,7 @@ CLIENT_GM_PACKETS.append(PacketGMCommand('CouncilKick', [
     ('UserName', TYPE_UNICODE_STRING),
     ]))
 CLIENT_GM_PACKETS.append(PacketGMCommand('SetTrigger', [
-    ('Trigger', TYPE_UNICODE_STRING),
+    ('Trigger', TYPE_I8),
     ]))
 CLIENT_GM_PACKETS.append(PacketGMCommand('AskTrigger', []))
 CLIENT_GM_PACKETS.append(PacketGMCommand('BannedIPList', []))
@@ -673,7 +677,7 @@ CLIENT_GM_PACKETS.append(PacketGMCommand('RemovePretorianClan', [
 CLIENT_GM_PACKETS.append(PacketGMCommand('EnableDenounces', []))
 CLIENT_GM_PACKETS.append(PacketGMCommand('ShowDenouncesList', []))
 CLIENT_GM_PACKETS.append(PacketGMCommand('MapMessage', [
-    ('Map', TYPE_I16),
+    ('Message', TYPE_UNICODE_STRING),
     ]))
 CLIENT_GM_PACKETS.append(PacketGMCommand('SetDialog', [
     ('Message', TYPE_UNICODE_STRING),
