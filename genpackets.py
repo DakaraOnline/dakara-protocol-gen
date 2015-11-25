@@ -764,7 +764,7 @@ SERVER_PACKETS.append(Packet('ChatOverHead', [
     ]))
 SERVER_PACKETS.append(Packet('ConsoleMsg', [
     ('Chat', TYPE_UNICODE_STRING),
-    ('FontIndex', TYPE_I16),
+    ('FontIndex', TYPE_I8),
     ]))
 SERVER_PACKETS.append(Packet('GuildChat', [
     ('Chat', TYPE_UNICODE_STRING),
