@@ -24,11 +24,8 @@ namespace {namespace} {{
     for i, x in enumerate(P):
         if x:
             fh.write("    {base_name}ID_{name} = {packet_id}".format(base_name=base_name, name=x.name, packet_id=i))
-            if i == len(P) - 1:
-                fh.write("\n")
-            else:
-                fh.write(",\n")
-    fh.write("""};\n""")
+            fh.write(",\n")
+    fh.write("""    {base_name}ID_PACKET_COUNT = {packet_id}\n}};\n""".format(base_name=base_name, packet_id=len(P)))
 
     # Base packet class
     fh.write("""
@@ -103,6 +100,8 @@ void {base_name}DecodeAndDispatch(clsByteQueue* buffer, PacketHandler* handler) 
         if not x: continue
 
         header_fields = []
+        header_fields_signature = []
+        items_assign_e = []
         ctor_fields = ""
         min_byte_count = 0
         ctor_fields_bytequeue = ""
@@ -112,21 +111,26 @@ void {base_name}DecodeAndDispatch(clsByteQueue* buffer, PacketHandler* handler) 
             arg_name = y[0]
             arg_type = y[1] & 0xff
             arg_type_str = TYPE_TO_STR[arg_type]
+            arg_type_sig_str = TYPE_TO_SIGNATURE_STR[arg_type]
             arg_is_array = ((y[1] & TYPE_ARRAY) == TYPE_ARRAY)
             type_reader_name = TYPE_TO_READER_NAME[arg_type]
             type_writer_name = TYPE_TO_WRITER_NAME[arg_type]
 
             ctor_fields += ", " + arg_name + "()"
 
+            items_assign_e.append("        e.{arg_name} = {arg_name};".format(arg_name=arg_name))
+
             if arg_is_array:
                 array_size=y[2]
                 min_byte_count += TYPE_SIZE[arg_type] * array_size
-                header_fields.append("    {arg_type_str} {arg_name}[{array_size}]; ".format(arg_type_str=arg_type_str, arg_name=arg_name, array_size=array_size))
+                header_fields.append("    std::vector<{arg_type_str}> {arg_name}; ".format(arg_type_str=arg_type_str, arg_name=arg_name, array_size=array_size))
+                header_fields_signature.append("std::vector<{arg_type_str}> {arg_name} ".format(arg_type_str=arg_type_sig_str, arg_name=arg_name, array_size=array_size))
                 ctor_fields_bytequeue += x.get_ctor_fields_bytequeue_fmt(arg_is_array).format(arg_name=arg_name, type_reader_name=type_reader_name, array_size=array_size)
                 serialize_fields += x.get_serialize_fields_fmt(arg_is_array).format(arg_name=arg_name, type_writer_name=type_writer_name, array_size=array_size)
             else:
                 min_byte_count += TYPE_SIZE[arg_type]
                 header_fields.append("    {arg_type_str} {arg_name}; ".format(arg_type_str=arg_type_str, arg_name=arg_name))
+                header_fields_signature.append("{arg_type_str} {arg_name}".format(arg_type_str=arg_type_sig_str, arg_name=arg_name))
                 ctor_fields_bytequeue += x.get_ctor_fields_bytequeue_fmt(arg_is_array).format(arg_name=arg_name, type_reader_name=type_reader_name)
                 serialize_fields += x.get_serialize_fields_fmt(arg_is_array).format(arg_name=arg_name, type_writer_name=type_writer_name)
 
@@ -134,6 +138,8 @@ void {base_name}DecodeAndDispatch(clsByteQueue* buffer, PacketHandler* handler) 
             'base_name': base_name,
             'name': x.name,
             'header_fields': '\n'.join(header_fields),
+            'header_fields_signature': ', '.join(header_fields_signature),
+            'items_assign_e': '\n'.join(items_assign_e),
             'ctor_fields': ctor_fields,
             'packet_id': i,
             'min_byte_count': min_byte_count,
@@ -194,10 +200,14 @@ def write_packets():
     fh.write("""
 /* Automatically generated file */
 
+#ifndef DAKARAPROTOCOLNEW_H
+#define DAKARAPROTOCOLNEW_H
+
 #include <stdint.h>
 #include <string>
 #include <vector>
 #include <stdexcept>
+#include <memory>
 
 #include "ByteQueue.h"
 
@@ -238,7 +248,7 @@ public:
 
     int get_id() const { return id_; }
 
-    virtual void serialize(clsByteQueue* buffer) = 0;
+    virtual void serialize(clsByteQueue* buffer) const = 0;
     virtual void dispatch(PacketHandler* d) = 0;
 
 protected:
@@ -266,6 +276,9 @@ namespace protocol {
     fh.write("""
 }
 }
+
+#endif
+
 """)
 
     fc.write("""
