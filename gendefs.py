@@ -5,13 +5,18 @@ class Packet:
         self.name = name
         self.args = args
 
-    def get_header_fmt(self):
-        return """
+    def get_header_fmt(self, number_of_fields):
+        S = """
 class {name} : public {base_name} {{
 public:
     {name}();
     {name}(clsByteQueue* buffer);
+"""
+        if (number_of_fields > 0):
+            S += """    {name}({header_fields_signature});
+"""
 
+        S += """
     virtual void serialize(clsByteQueue* buffer) const;
     virtual void dispatch(PacketHandler* d);
 
@@ -19,15 +24,14 @@ public:
 }};
 
 inline {name} Build{name}({header_fields_signature}) {{
-    {name} e;
-{items_assign_e}
-    return e;
+    return {name}({ctor_fields_build});
 }}
 """
+        return S
 
     def get_ctor1_fmt(self):
         return """
-{name}::{name}() : {base_name}({base_name}ID_{name} /* {packet_id} */) {{
+{name}::{name}() : {base_name}({base_name}ID_{name} /* {packet_id} */){ctor_fields_default} {{
 }}
 """
 
@@ -36,6 +40,12 @@ inline {name} Build{name}({header_fields_signature}) {{
 {name}::{name}(clsByteQueue* buffer) : {base_name}({base_name}ID_{name} /* {packet_id} */) {{
     buffer->ReadByte(); /* PacketID */
 {ctor_fields_bytequeue}
+}}
+"""
+
+    def get_ctor3_fmt(self):
+        return """
+{name}::{name}({header_fields_signature_init}) : {base_name}({base_name}ID_{name} /* {packet_id} */){ctor_fields_init} {{
 }}
 """
 
@@ -70,7 +80,7 @@ class PacketGMHeader(Packet):
     def __init__(self, name, args):
         Packet.__init__(self, name, args)
 
-    def get_header_fmt(self):
+    def get_header_fmt(self, number_of_fields):
         return """
 class {name} : public {base_name} {{
 public:
@@ -88,7 +98,7 @@ public:
 
     def get_ctor1_fmt(self):
         return """
-{name}::{name}() : {base_name}({base_name}ID_{name} /* {packet_id} */) {{
+{name}::{name}() : {base_name}({base_name}ID_{name} /* {packet_id} */){ctor_fields_default} {{
 }}
 """
 
@@ -129,7 +139,7 @@ class PacketWithCount(Packet):
         Packet.__init__(self, name, args)
         self.reader_type = reader_type
 
-    def get_header_fmt(self):
+    def get_header_fmt(self, number_of_fields):
         return """
 class {name} : public {base_name} {{
 public:
@@ -173,6 +183,9 @@ public:
     }}
 }}
 """.replace("__COUNTREADER__", TYPE_TO_READER_NAME[self.reader_type])
+
+    def get_ctor3_fmt(self):
+        return ""
 
     def get_serialize_fmt(self):
         return """
